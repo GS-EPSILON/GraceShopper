@@ -1,18 +1,21 @@
 'use strict'
 
 const db = require('../server/db')
-const {User} = require('../server/db/models')
+const {User, Product} = require('../server/db/models')
+const {usersSeed, productsSeed} = require('./seedData')
 
 async function seed() {
   await db.sync({force: true})
   console.log('db synced!')
 
-  const users = await Promise.all([
-    User.create({email: 'cody@email.com', password: '123'}),
-    User.create({email: 'murphy@email.com', password: '123'})
-  ])
+  // const users = await Promise.all([
+  //   User.create({email: 'cody@email.com', password: '123'}),
+  //   User.create({email: 'murphy@email.com', password: '123'}),
+  // ])
 
-  console.log(`seeded ${users.length} users`)
+  const users = await User.bulkCreate(usersSeed)
+  // const products = await Product.bulkCreate(productsSeed)
+  console.log(`seeded ${users.length} users,  products`)
   console.log(`seeded successfully`)
 }
 
@@ -22,7 +25,9 @@ async function seed() {
 async function runSeed() {
   console.log('seeding...')
   try {
+    console.log('starting')
     await seed()
+    console.log('finished')
   } catch (err) {
     console.error(err)
     process.exitCode = 1
