@@ -63,9 +63,29 @@ const createApp = () => {
   app.use(passport.initialize())
   app.use(passport.session())
 
+  //adds cart if no cart
+  app.use((req, res, next) => {
+    if (!req.session.cart) {
+      req.session.cart = {
+        items: [
+          {
+            name: 'Space Junk',
+            price: 60,
+            imageUrl:
+              'https://upload.wikimedia.org/wikipedia/commons/a/a1/Debris-GEO1280.jpg'
+          }
+        ],
+        totalPrice: 0.0
+      }
+    }
+    next()
+  })
+
   // auth and api routes
+
   app.use('/auth', require('./auth'))
   app.use('/api', require('./api'))
+  app.use('/cart', require('./cart'))
 
   // static file-serving middleware
   app.use(express.static(path.join(__dirname, '..', 'public')))
