@@ -1,30 +1,29 @@
 import React from 'react'
-import {connect} from '../../server/api/products'
+import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
+import {fetchProducts} from '../store/products'
 
 export class AllProducts extends React.Component {
-  constructor() {
-    super()
-  }
-
   componentDidMount() {
     try {
-      this.props.loadAllProducts(this.props.match.params.products)
+      this.props.fetchProducts()
     } catch (error) {
-      console.error(error)
+      console.error()
     }
   }
 
   render() {
+    console.log('Props: ', this.props)
     const {products} = this.props
+    console.log('State: ', this.state)
     return (
       <div>
         {products.map(product => (
-          <div key={product.id}>
+          <Link to={`/products/${product.id}`} key={product.id}>
             <h2>{product.name}</h2>
             <img src={product.imageURL} alt={`${product.name}`} />
             <h2>{product.price}</h2>
-          </div>
+          </Link>
         ))}
       </div>
     )
@@ -36,7 +35,7 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  loadAllProducts: () => dispatch(fetchProducts())
+  fetchProducts: () => dispatch(fetchProducts())
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(AllProducts)
