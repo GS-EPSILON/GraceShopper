@@ -4,9 +4,10 @@ class Cart {
     if (!this.inCart(item, cart)) {
       let cartItem = {
         id: item.itemId,
+        name: item.name,
         price: item.price,
         qty: qty,
-        imageUrl: item.imageUrl
+        imageUrl: item.imageURL
       }
       cart.items.push(cartItem)
     }
@@ -24,7 +25,7 @@ class Cart {
 
   static removeCartItem(id, cart) {
     for (let i = 0; i < cart.items.length; i++) {
-      if (cart.items[i].id === id) {
+      if (cart.items[i].itemId === id) {
         cart.items.splice(i, 1)
       }
     }
