@@ -28,7 +28,6 @@ export const fetchProducts = () => {
 const products = []
 
 // REDUCER
-
 export default function(state = products, action) {
   switch (action.type) {
     case GET_PRODUCTS:
