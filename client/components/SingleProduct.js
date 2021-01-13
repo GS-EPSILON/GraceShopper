@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 
 import {fetchSingleProduct} from '../store/singleProduct'
+import {pushToCart} from '../store/cart'
 
 class SingleProduct extends Component {
   constructor() {
@@ -25,6 +26,7 @@ class SingleProduct extends Component {
 
   render() {
     const {product} = this.props
+    console.log(this.props)
     return (
       <div>
         <div className="single-product">
@@ -32,7 +34,7 @@ class SingleProduct extends Component {
           <h1>{product.price}</h1>
           <h1>{product.imageUrl}</h1>
         </div>
-        <button type="button" onClick={() => this.addToCart()}>
+        <button type="button" onClick={() => this.props.pushToCart(product.id)}>
           Add To Cart
         </button>
       </div>
@@ -45,7 +47,8 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  loadSingleProduct: id => dispatch(fetchSingleProduct(id))
+  loadSingleProduct: id => dispatch(fetchSingleProduct(id)),
+  pushToCart: (id, qty) => dispatch(pushToCart(id, qty))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(SingleProduct)

@@ -69,6 +69,7 @@ const createApp = () => {
       req.session.cart = {
         items: [
           {
+            id: 69,
             name: 'Space Junk',
             price: 60,
             imageUrl:

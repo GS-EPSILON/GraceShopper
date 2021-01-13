@@ -13,15 +13,15 @@ export const setSingleProduct = product => ({
 export const fetchSingleProduct = id => {
   return async dispatch => {
     try {
-      const {data: product} = await axios.get(`/api/products/${id}`)
-      dispatch(setSingleProduct(product))
+      const {data} = await axios.get(`/api/products/${id}`)
+      dispatch(setSingleProduct(data))
     } catch (error) {
       console.error(error)
     }
   }
 }
 
-const initalState = {}
+const initialState = {}
 
 const singleProductReducer = (state = initialState, action) => {
   switch (action.type) {
