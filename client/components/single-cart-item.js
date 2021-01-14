@@ -4,7 +4,6 @@ import {deleteCartItem} from '../store/cart'
 
 const SingleCartItem = props => {
   const {item, handleDelete} = props
-  console.log('item in single-cart-item component -->', item)
   return (
     <div className="single-cart-item">
       <h1>{item.name}</h1>

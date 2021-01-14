@@ -40,7 +40,6 @@ export const pushToCart = (itemId, qty) => {
 export const deleteCartItem = itemId => {
   return async dispatch => {
     try {
-      console.log(itemId)
       await axios.delete(`/cart/${itemId}`)
       dispatch(fetchCart())
     } catch (error) {
