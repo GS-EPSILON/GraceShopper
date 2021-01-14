@@ -1,4 +1,5 @@
 class Cart {
+  //hello
   static addToCart(item, qty, cart) {
     //the this context refers to the class Cart itself, we're calling its own function
     if (!this.inCart(item, cart)) {
