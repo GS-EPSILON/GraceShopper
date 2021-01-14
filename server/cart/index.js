@@ -12,7 +12,6 @@ router.post('/', async (req, res, next) => {
     const cart = req.session.cart
     const item = await Product.findByPk(req.body.itemId)
     const qty = req.body.qty
-
     Cart.addToCart(item, qty, cart)
     res.status(201).send(item)
   } catch (error) {

@@ -9,16 +9,18 @@ const SingleCartItem = props => {
       <h1>{item.name}</h1>
       <h3>{item.price}</h3>
       <img src={item.imageUrl} />
+      <label htmlFor="qty">
+        Quantity:
+        <input
+          type="number"
+          name="qty"
+          value={`${item.qty}`}
+          onChange={event => handleQtyChange(event, item)}
+        />
+      </label>
       <button type="button" onClick={() => handleDelete(item.id)}>
         Delete
       </button>
-      <label htmlFor="qty" />
-      <input
-        type="number"
-        name="qty"
-        value={`${item.qty}`}
-        onChange={event => handleQtyChange(event, item)}
-      />
     </div>
   )
 }
