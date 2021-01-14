@@ -28,6 +28,7 @@ export const fetchCart = () => {
 export const pushToCart = (itemId, qty) => {
   return async dispatch => {
     try {
+      console.log('redux qty -->', qty)
       await axios.post('/cart', {itemId, qty})
       dispatch(fetchCart())
     } catch (error) {
