@@ -20,6 +20,21 @@ router.post('/', async (req, res, next) => {
   }
 })
 
+router.put('/', (req, res, next) => {
+  try {
+    const cart = req.session.cart
+    const item = req.body.item
+    const qty = req.body.qty
+    if (Cart.editCartItemQty(item, qty, cart)) {
+      res.status(200).redirect('/')
+    } else {
+      res.status(401).send('Invalid quantity')
+    }
+  } catch (error) {
+    next(error)
+  }
+})
+
 router.delete('/:itemId', async (req, res, next) => {
   try {
     const cart = req.session.cart
