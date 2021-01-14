@@ -14,7 +14,8 @@ const Order = require('./order')
  * for example, we can say: const {User} = require('../db/models')
  * instead of: const User = require('../db/models/user')
  */
-
+User.hasMany(Order)
+Order.belongsTo(User)
 Product.belongsToMany(Order, {through: 'orders_products'})
 Order.belongsToMany(Product, {through: 'orders_products'})
 
