@@ -26,7 +26,6 @@ class SingleProduct extends Component {
 
   render() {
     const {product} = this.props
-    console.log(this.props)
     return (
       <div>
         <div className="single-product">

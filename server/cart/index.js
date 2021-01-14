@@ -20,10 +20,12 @@ router.post('/', async (req, res, next) => {
   }
 })
 
-router.delete('/remove/:itemId', (req, res, next) => {
+router.delete('/:itemId', async (req, res, next) => {
   try {
     const cart = req.session.cart
-    if (Cart.removeCartItem(req.params.itemId, cart)) {
+    const item = await Product.findByPk(req.params.itemId)
+
+    if (Cart.removeCartItem(item, cart)) {
       res.status(204).redirect('/')
     } else {
       res.status(404).send('No item found')

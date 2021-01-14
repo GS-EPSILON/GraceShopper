@@ -13,15 +13,20 @@ class Cart extends React.Component {
   }
   render() {
     const {cart} = this.props
-    console.log(cart)
     return (
       <div className="cart">
         <h1>Your Cart</h1>
         {cart.items ? (
           <div>
-            {cart.items.map(item => {
-              return <SingleCartItem key={item.id} item={item} />
-            })}
+            {cart.items.length > 0 ? (
+              cart.items.map(item => {
+                return <SingleCartItem key={item.id} item={item} />
+              })
+            ) : (
+              <div>
+                <h3>There are no items in your space cart!</h3>
+              </div>
+            )}
           </div>
         ) : (
           <h1>Loading</h1>

@@ -3,7 +3,6 @@ import axios from 'axios'
 //action types
 
 const GET_CART = 'GET_CART'
-const ADD_TO_CART = 'ADD_TO_CART'
 
 //action creator
 
@@ -37,6 +36,18 @@ export const pushToCart = (itemId, qty) => {
   }
 }
 
+//DELETE FROM CART
+export const deleteCartItem = itemId => {
+  return async dispatch => {
+    try {
+      await axios.delete(`/cart/${itemId}`)
+      dispatch(fetchCart())
+    } catch (error) {
+      console.error(error)
+    }
+  }
+}
+
 const initialState = {}
 
 //reducer
@@ -45,8 +56,6 @@ export const cartReducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_CART:
       return {...action.cart}
-    case ADD_TO_CART:
-      return {...action.cart, items: {...action.item}}
     default:
       return state
   }
