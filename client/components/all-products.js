@@ -19,7 +19,7 @@ export class AllProducts extends React.Component {
     return (
       <div>
         {products.map(product => (
-          <Link to={`/products/${product.id}`} key={product.id}>
+          <Link to={`/product/${product.id}`} key={product.id}>
             <h2>{product.name}</h2>
             <img src={product.imageURL} alt={`${product.name}`} />
             <h2>{product.price}</h2>
