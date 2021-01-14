@@ -67,15 +67,7 @@ const createApp = () => {
   app.use((req, res, next) => {
     if (!req.session.cart) {
       req.session.cart = {
-        items: [
-          {
-            id: 69,
-            name: 'Space Junk',
-            price: 60,
-            imageUrl:
-              'https://upload.wikimedia.org/wikipedia/commons/a/a1/Debris-GEO1280.jpg'
-          }
-        ],
+        items: [],
         totalPrice: 0.0
       }
     }
