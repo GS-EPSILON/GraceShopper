@@ -26,12 +26,25 @@ class SingleProduct extends Component {
 
   render() {
     const {product} = this.props
+    // const qtyLength = product.quantity++
+    const qtyArray = [...Array(product.quantity).keys()]
     return (
       <div>
         <div className="single-product">
-          <h1>{product.name}</h1>
-          <h1>{product.price}</h1>
-          <h1>{product.imageUrl}</h1>
+          <div>
+            <h1>{product.name}</h1>
+          </div>
+          <img src={product.imageURL} />
+          <h4>Bitcoin (use Bitcoin symbol): {product.price}</h4>
+          <p>Available: {product.quantity}</p>
+          <div>
+            <span>Qty:</span>
+            <select>
+              {qtyArray.map(qty => {
+                return <option key={qty.id}> {qty + 1} </option>
+              })}
+            </select>
+          </div>
         </div>
         <button type="button" onClick={() => this.props.pushToCart(product.id)}>
           Add To Cart
