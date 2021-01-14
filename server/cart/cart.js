@@ -7,10 +7,12 @@ class Cart {
         id: item.id,
         name: item.name,
         price: item.price,
-        qty: qty,
+        qty: item.qty || 1,
         imageUrl: item.imageURL
       }
       cart.items.push(cartItem)
+    } else {
+      item.qty++
     }
   }
 
@@ -33,6 +35,17 @@ class Cart {
       }
     }
     return deleted
+  }
+
+  static editCartItemQty(item, qty, cart) {
+    let edited = false
+    for (let i = 0; i < cart.items.length; i++) {
+      if (cart.items[i].qty !== qty) {
+        cart.items[i].qty = qty
+        edited = true
+      }
+    }
+    return edited
   }
 
   static clearCart(cart) {
