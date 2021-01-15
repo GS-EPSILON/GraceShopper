@@ -26,6 +26,10 @@ const Product = db.define('product', {
     validate: {
       min: 0
     }
+  },
+  category: {
+    type: Sequelize.ENUM('vehicle', 'apparel', 'service', 'misc'),
+    allowNull: false
   }
 })
 

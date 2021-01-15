@@ -3,3 +3,7 @@ nav {
   flex-direction: row;
   justify-content: space-between;
 }
+
+h1 {
+  font-family: 'Yusei Magic', sans-serif;
+}

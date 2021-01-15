@@ -4,9 +4,11 @@ import '../css/navbar.css'
 
 const Navbar = () => (
   <div>
-    <h1>SPACEPLACE</h1>
     <nav>
-      <Link to="/products">Products</Link>
+      <Link to="/products">
+        <h1>SPACEPLACE</h1>
+      </Link>
+      <Link to="/products">Shop</Link>
       <span>
         <Link to="/user">User</Link>
         <Link to="/cart">Cart</Link>
