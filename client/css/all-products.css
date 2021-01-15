@@ -1,0 +1,18 @@
+#products-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  /* max-width: 1400px; */
+}
+
+img {
+  width: 250px;
+  height: 350px;
+  object-fit: cover;
+  border: 2px solid black;
+}
+
+.product {
+  margin: 1rem;
+}
