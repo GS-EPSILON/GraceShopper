@@ -175,6 +175,39 @@ const misc = [
   }
 ]
 
+const ordersSeed = [
+  {
+    userId: 1,
+    date: '2021-01-05T12:00:00.000Z',
+    status: 'complete',
+    totalPrice: 100
+  },
+  {
+    userId: 2,
+    date: '2021-01-14T12:00:00.000Z',
+    status: 'complete',
+    totalPrice: 222
+  },
+  {
+    userId: 2,
+    date: '2021-01-13T02:51:25.898Z',
+    status: 'complete',
+    totalPrice: 44
+  },
+  {
+    userId: 3,
+    date: '2021-01-08T12:00:00.000Z',
+    status: 'complete',
+    totalPrice: 96
+  },
+  {
+    userId: 4,
+    date: '2021-01-09T12:00:00.000Z',
+    status: 'complete',
+    totalPrice: 453
+  }
+]
+
 const productsSeed = vehicles
   .concat(apparel)
   .concat(services)
@@ -182,5 +215,6 @@ const productsSeed = vehicles
 
 module.exports = {
   usersSeed,
-  productsSeed
+  productsSeed,
+  ordersSeed
 }

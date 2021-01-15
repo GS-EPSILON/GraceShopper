@@ -1,8 +1,8 @@
 'use strict'
 
 const db = require('../server/db')
-const {User, Product} = require('../server/db/models')
-const {usersSeed, productsSeed} = require('./seedData')
+const {User, Product, Order} = require('../server/db/models')
+const {usersSeed, productsSeed, ordersSeed} = require('./seedData')
 
 async function seed() {
   await db.sync({force: true})
@@ -10,8 +10,21 @@ async function seed() {
 
   const users = await User.bulkCreate(usersSeed)
   const products = await Product.bulkCreate(productsSeed)
+  const orders = await Order.bulkCreate(ordersSeed)
 
-  console.log(`seeded ${users.length} users, ${products.length} products`)
+  // Randomly assign products to orders
+  for (let j = 0; j < orders.length; j++) {
+    for (let i = 1; i < 3 + Math.floor(Math.random() * 10); i++) {
+      let rando = Math.floor(Math.random() * products.length)
+      await orders[j].addProduct(products[rando])
+    }
+  }
+
+  console.log(
+    `seeded ${users.length} users, ${products.length} products, orders: ${
+      orders.length
+    }`
+  )
   console.log(`seeded successfully`)
 }
 
@@ -21,9 +34,7 @@ async function seed() {
 async function runSeed() {
   console.log('seeding...')
   try {
-    console.log('starting')
     await seed()
-    console.log('finished')
   } catch (err) {
     console.error(err)
     process.exitCode = 1

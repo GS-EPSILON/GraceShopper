@@ -16,7 +16,7 @@ const Order = db.define('order', {
     values: ['complete', 'inProgress']
   },
   totalPrice: {
-    type: Sequelize.DECIMAL
+    type: Sequelize.INTEGER
   }
 })
 
