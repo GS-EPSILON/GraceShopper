@@ -5,12 +5,12 @@
 
 #landing-container {
   position: absolute;
-  top: 45vh;
-  left: 15vw;
+  top: 42vh;
+  left: 10vw;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 150px;
+  height: 200px;
 }
 
 #landing-buttons {
@@ -73,14 +73,14 @@
 }
 
 #landing button {
-  background-color: #16ab39;
+  background-color: #31e981;
   height: 40px;
   width: 100px;
   margin-right: 1rem;
   margin-top: 0.25rem;
   border-radius: 4px;
   border: 1px solid black;
-  color: white;
+  color: black;
 }
 
 #landing .button-negative {
@@ -88,10 +88,11 @@
   height: 40px;
   width: 100px;
   border: 1px solid white;
+  color: white;
 }
 
 #landing h1 {
-  font-size: 3rem;
+  font-size: 5rem;
   letter-spacing: 2px;
 }
 

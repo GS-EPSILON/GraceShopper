@@ -6,16 +6,17 @@
 body {
   font-family: sans-serif;
   background-image: linear-gradient(
-      to bottom,
-      rgba(30, 30, 30, 0.85),
-      rgba(30, 30, 30, 0.92)
+      160deg,
+      rgba(31, 32, 65, 0.9) 0%,
+      rgba(50, 32, 65, 0.9) 80%,
+      rgba(82, 35, 70, 0.9) 100%
     ),
     url('https://assets.website-files.com/5c6c5d537c647f619adce5fc/5c6cd2b307ffea0ab0d49884_pexels-photo-1341279.jpeg');
-  /* background: rgba(0, 9, 255, 0.5); */
-  /* -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover; */
+
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
 }
 
 a {

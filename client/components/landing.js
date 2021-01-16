@@ -7,7 +7,7 @@ const Landing = () => {
       <div id="landing">
         <div id="landing-container">
           <h1>Space Place</h1>
-          <p>A place to get stuff for your place, from space!</p>
+          <p>Get you some stuff for your place, from space!</p>
           <div id="landing-buttons">
             <button className="button-negative" type="button">
               Log In
