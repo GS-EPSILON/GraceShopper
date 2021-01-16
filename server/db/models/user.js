@@ -29,6 +29,10 @@ const User = db.define('user', {
   },
   imgUrl: {
     type: Sequelize.TEXT
+  },
+  isAdmin: {
+    type: Sequelize.BOOLEAN,
+    defaultValue: false
   }
 })
 
