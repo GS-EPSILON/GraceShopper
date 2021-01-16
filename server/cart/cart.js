@@ -31,7 +31,6 @@ class Cart {
         const orderProductToUpdate = await OrderProduct.findOne({
           where: {orderId: cart.id, productId: item.id}
         })
-        console.log('qty @ cart --> ', qty)
         orderProductToUpdate.quantity += qty
         orderProductToUpdate.priceAtPurchase += item.price * qty
         await orderProductToUpdate.save()
