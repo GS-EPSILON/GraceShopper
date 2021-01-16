@@ -2,8 +2,20 @@ nav {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: flex-end;
+  margin: 1rem 5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid white;
 }
 
 h1 {
   font-family: 'Yusei Magic', sans-serif;
+}
+
+.nav-link {
+  margin-left: 1rem;
+}
+
+nav a {
+  color: white;
 }

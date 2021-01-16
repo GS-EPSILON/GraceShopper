@@ -8,13 +8,18 @@ const Navbar = () => (
       <Link to="/products">
         <h1>SPACEPLACE</h1>
       </Link>
-      <Link to="/products">Shop</Link>
       <span>
-        <Link to="/user">User</Link>
-        <Link to="/cart">Cart</Link>
+        <Link className="nav-link" to="/products">
+          Shop
+        </Link>
+        <Link className="nav-link" to="/user">
+          User
+        </Link>
+        <Link className="nav-link" to="/cart">
+          Cart
+        </Link>
       </span>
     </nav>
-    <hr />
   </div>
 )
 
