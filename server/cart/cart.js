@@ -17,28 +17,32 @@ class Cart {
         await orderToUpdate.addProduct(item.id, {
           through: {
             quantity: qty,
-            priceAtPurchase: item.price
+            priceAtPurchase: item.price * qty
           }
         })
         orderToUpdate.totalPrice += item.price * qty
         await orderToUpdate.save()
       }
+    } else if (cart.id) {
+      //updates through table
+      const orderProductToUpdate = await OrderProduct.findOne({
+        where: {orderId: cart.id, productId: item.id}
+      })
+
+      //updating Price & Quantity
+      orderProductToUpdate.quantity += qty
+      orderProductToUpdate.priceAtPurchase += item.price * qty
+      await orderProductToUpdate.save()
+
+      //updates totalPrice on Orders table
+      const orderToUpdate = await Order.findOne({where: {id: cart.id}})
+      orderToUpdate.totalPrice += item.price * qty
+      await orderToUpdate.save()
     } else {
-      item.qty += qty
-
-      if (cart.id) {
-        //updates through table
-        const orderProductToUpdate = await OrderProduct.findOne({
-          where: {orderId: cart.id, productId: item.id}
-        })
-        orderProductToUpdate.quantity += qty
-        orderProductToUpdate.priceAtPurchase += item.price * qty
-        await orderProductToUpdate.save()
-
-        //updates Orders table, specifically
-        const orderToUpdate = await Order.findOne({where: {id: cart.id}})
-        orderToUpdate.totalPrice += item.price * qty
-        await orderToUpdate.save()
+      for (let i = 0; i < cart.items.length; i++) {
+        if (cart.items[i].qty !== qty) {
+          cart.items[i].qty += qty
+        }
       }
     }
   }
@@ -61,6 +65,8 @@ class Cart {
         if (cart.id) {
           const orderToUpdate = await Order.findOne({where: {id: cart.id}})
           await orderToUpdate.removeProduct(deletedItem.id)
+
+          //updating totalPrice on Order table
           orderToUpdate.totalPrice -=
             parseInt(deletedItem.price, 10) *
             deletedItem.orders_products.quantity
@@ -72,11 +78,33 @@ class Cart {
     return deleted
   }
 
-  static editCartItemQty(item, qty, cart) {
+  static async editCartItemQty(item, qty, cart) {
     let edited = false
+
     for (let i = 0; i < cart.items.length; i++) {
-      if (cart.items[i].qty !== qty) {
+      if (cart.items[i].qty !== qty && cart.items[i].id === item.id) {
+        cart.items[i].qty = qty
         edited = true
+        if (cart.id) {
+          const orderProductToUpdate = await OrderProduct.findOne({
+            where: {orderId: cart.id, productId: item.id}
+          })
+
+          const orderToUpdate = await Order.findOne({
+            where: {id: cart.id}
+          })
+          //removing Order item's price to replace later
+          orderToUpdate.totalPrice -= orderProductToUpdate.priceAtPurchase
+
+          //update OrderProduct price & quantity
+          orderProductToUpdate.quantity = qty
+          orderProductToUpdate.priceAtPurchase = item.price * qty
+          await orderProductToUpdate.save()
+
+          //re-adding order-product item's new priceAtPurchase to Order's total price
+          orderToUpdate.totalPrice += orderProductToUpdate.priceAtPurchase
+          await orderToUpdate.save()
+        }
       }
     }
     return edited
