@@ -6,6 +6,7 @@ const session = require('express-session')
 const passport = require('passport')
 const SequelizeStore = require('connect-session-sequelize')(session.Store)
 const db = require('./db')
+const {Order} = require('./db/models/')
 const sessionStore = new SequelizeStore({db})
 const PORT = process.env.PORT || 8080
 const app = express()
@@ -64,8 +65,17 @@ const createApp = () => {
   app.use(passport.session())
 
   //adds cart if no cart
-  app.use((req, res, next) => {
-    if (!req.session.cart) {
+  app.use(async (req, res, next) => {
+    if (req.user) {
+      const [currentOrder] = await Order.findOrCreate({
+        where: {userId: req.user.id, status: 'inProgress'}
+      })
+      req.session.cart = {
+        id: currentOrder.id,
+        items: await currentOrder.getProducts(),
+        totalPrice: currentOrder.totalPrice
+      }
+    } else if (!req.session.cart) {
       req.session.cart = {
         items: [],
         totalPrice: 0.0

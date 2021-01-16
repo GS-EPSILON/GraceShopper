@@ -1,6 +1,7 @@
+const {Order, OrderProduct} = require('../db/models')
+
 class Cart {
-  //hello
-  static addToCart(item, qty, cart) {
+  static async addToCart(item, qty, cart) {
     //the this context refers to the class Cart itself, we're calling its own function
     if (!this.inCart(item, cart)) {
       let cartItem = {
@@ -11,8 +12,35 @@ class Cart {
         imageUrl: item.imageURL
       }
       cart.items.push(cartItem)
+      if (cart.id) {
+        const orderToUpdate = await Order.findOne({where: {id: cart.id}})
+        await orderToUpdate.addProduct(item.id, {
+          through: {
+            quantity: qty,
+            priceAtPurchase: item.price
+          }
+        })
+        orderToUpdate.totalPrice += item.price * qty
+        await orderToUpdate.save()
+      }
     } else {
-      item.qty++
+      item.qty += qty
+
+      if (cart.id) {
+        //updates through table
+        const orderProductToUpdate = await OrderProduct.findOne({
+          where: {orderId: cart.id, productId: item.id}
+        })
+        console.log('qty @ cart --> ', qty)
+        orderProductToUpdate.quantity += qty
+        orderProductToUpdate.priceAtPurchase += item.price * qty
+        await orderProductToUpdate.save()
+
+        //updates Orders table, specifically
+        const orderToUpdate = await Order.findOne({where: {id: cart.id}})
+        orderToUpdate.totalPrice += item.price * qty
+        await orderToUpdate.save()
+      }
     }
   }
 
@@ -26,11 +54,19 @@ class Cart {
     return found
   }
 
-  static removeCartItem(item, cart) {
+  static async removeCartItem(item, cart) {
     let deleted = false
     for (let i = 0; i < cart.items.length; i++) {
       if (cart.items[i].id === item.id) {
-        cart.items.splice(i, 1)
+        const [deletedItem] = cart.items.splice(i, 1)
+        if (cart.id) {
+          const orderToUpdate = await Order.findOne({where: {id: cart.id}})
+          await orderToUpdate.removeProduct(deletedItem.id)
+          orderToUpdate.totalPrice -=
+            parseInt(deletedItem.price, 10) *
+            deletedItem.orders_products.quantity
+          await orderToUpdate.save()
+        }
         deleted = true
       }
     }
@@ -41,7 +77,6 @@ class Cart {
     let edited = false
     for (let i = 0; i < cart.items.length; i++) {
       if (cart.items[i].qty !== qty) {
-        cart.items[i].qty = qty
         edited = true
       }
     }
