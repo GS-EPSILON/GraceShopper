@@ -99,6 +99,47 @@
 #landing h3 {
   font-size: 1.25rem;
 }
+
 #landing p {
   font-size: 1rem;
+}
+
+.planet {
+  position: fixed;
+  border: 0px;
+  z-index: -1;
+  bottom: -63px;
+  right: 56px;
+}
+
+.stars {
+  position: fixed;
+  border: 0px;
+  z-index: -3;
+  top: 0px;
+}
+
+.dimStars {
+  position: fixed;
+  border: 0px;
+  z-index: -3;
+  top: 0px;
+}
+
+.orbit {
+  position: fixed;
+  border: 0px;
+  z-index: -1;
+  bottom: -1326px;
+  right: -595px;
+  animation: rotation 500s infinite linear;
+}
+
+.orbitPlanet {
+  position: fixed;
+  border: 0px;
+  z-index: 1;
+  top: 0px;
+  right: 0px;
+  /* animation: rotation 500s infinite linear; */
 }
