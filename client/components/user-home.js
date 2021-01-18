@@ -3,11 +3,7 @@ import PropTypes from 'prop-types'
 import {connect, useDispatch} from 'react-redux'
 import {Login, Signup} from './auth-form'
 import {logout} from '../store/user'
-import '../css/user-home.css'
 
-/**
- * COMPONENT
- */
 export const UserHome = props => {
   const [status, setStatus] = useState('logged out')
   const dispatch = useDispatch()

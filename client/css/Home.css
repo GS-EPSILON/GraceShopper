@@ -1,0 +1,149 @@
+/* WELCOME STYLING */
+#welcome {
+  color: white;
+  position: absolute;
+  top: 35vh;
+  left: 11vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 170px;
+  z-index: 5;
+}
+
+#welcome-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+#welcome button {
+  background-color: #56e5ac;
+  height: 40px;
+  width: 100px;
+  margin-right: 1rem;
+  margin-top: 0.25rem;
+  border-radius: 4px;
+  border: 2px solid #00c29f;
+  color: black;
+}
+
+#welcome .button-negative {
+  background-color: transparent;
+  height: 40px;
+  width: 100px;
+  border: 1px solid white;
+  color: white;
+}
+
+#welcome h1 {
+  font-size: 4rem;
+  letter-spacing: 0.675rem;
+}
+
+#welcome h3 {
+  font-size: 1.25rem;
+}
+
+#welcome p {
+  font-size: 1rem;
+}
+
+/* COMPONENT STYLING */
+#landing-products {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  top: 130vh;
+  width: 100%;
+  z-index: 10;
+}
+
+#landing-products h1 {
+  margin-top: -5rem;
+  color: white;
+  letter-spacing: 2px;
+}
+
+#landing-products h1:hover {
+  cursor: pointer;
+}
+
+#starsDim {
+  z-index: -10;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  position: fixed;
+}
+
+#horizontal-moons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+
+#moon {
+  z-index: 10;
+  animation: rotation-cw 100s infinite linear;
+}
+
+#orbit {
+  animation: rotation 500s infinite linear;
+  border: 0px;
+  bottom: -1100px;
+  position: fixed;
+  right: -500px;
+  z-index: -10;
+}
+
+#orbit-moon {
+  animation: rotation 100s infinite linear;
+  align-items: center;
+  border: 0px;
+  bottom: -1100px;
+  display: flex;
+  flex-direction: column;
+  height: 1812px;
+  justify-content: space-between;
+  position: fixed;
+  right: -500px;
+  width: 1812px;
+  transform-origin: 50% 50%;
+}
+
+#planet {
+  position: fixed;
+  border: 0px;
+  top: 42vh;
+  right: 3vw;
+}
+
+.stars {
+  width: 100vw;
+  top: 0;
+  left: 0;
+  position: absolute;
+  z-index: -9;
+}
+
+/* ANIMATIONS */
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-359deg);
+  }
+}
+
+@keyframes rotation-cw {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
