@@ -2,7 +2,6 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import {fetchProducts} from '../store/products'
-import Landing from './landing'
 import '../css/all-products.css'
 
 export class AllProducts extends React.Component {
@@ -19,8 +18,10 @@ export class AllProducts extends React.Component {
 
     return (
       <React.Fragment>
-        <Landing />
         <div id="products-container-container">
+          {/* <div id="transition1"></div>
+          <div id="transition2"></div>
+          <div id="transition3"></div> */}
           <div id="products-container">
             <div className="product-container">
               <h2 className="products-h2">Vehicles</h2>

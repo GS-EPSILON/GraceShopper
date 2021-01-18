@@ -4,8 +4,8 @@ function Planet() {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="713"
-      height="500"
+      width="998"
+      height="700"
       version="1.1"
       viewBox="0 0 188.648 132.292"
       id="planet"

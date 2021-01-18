@@ -8,7 +8,7 @@ function DimStars() {
       height="1080"
       version="1.1"
       viewBox="0 0 508 285.75"
-      className="dimStars"
+      id="dimStars"
     >
       <defs>
         <path d="M82.538 -57.696H279.417V0.9890000000000043H82.538z" />

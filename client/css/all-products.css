@@ -5,7 +5,6 @@
   justify-content: space-around;
   align-items: center;
   color: black;
-  background: #231c35;
 }
 
 #products-container {
@@ -15,7 +14,8 @@
   justify-content: space-around;
   align-items: flex-start;
   color: black;
-  /* background: white; */
+  background: #f2f2f2;
+  border-radius: 10px;
 }
 
 img {
@@ -33,7 +33,6 @@ img {
   display: flex;
   flex-direction: column;
   padding: 3rem 2rem;
-  /* background: lightgray; */
   margin: 2rem 1rem;
   border-radius: 5px;
 }
@@ -42,10 +41,27 @@ img {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  /* justify-content: space-between; */
 }
 
 .products-h2 {
   font-size: 1.5rem;
   font-family: 'Yusei Magic', sans-serif;
+}
+
+#transition1 {
+  height: 10px;
+  background: #767cbf;
+  width: 100%;
+}
+
+#transition2 {
+  height: 15px;
+  background: #86e3e9;
+  width: 100%;
+}
+
+#transition3 {
+  height: 20px;
+  background: #b3f3ed;
+  width: 100%;
 }

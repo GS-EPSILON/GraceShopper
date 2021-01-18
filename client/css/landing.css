@@ -1,66 +1,29 @@
 #landing {
-  height: 95vh;
+  height: 120vh;
   color: white;
 }
 
 #landing-container {
   position: absolute;
-  top: 42vh;
+  top: 35vh;
   left: 10vw;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 200px;
+  height: 170px;
+  z-index: 5;
+}
+
+#landing-page {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 #landing-buttons {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-}
-
-#planets {
-  position: fixed;
-  top: 20vh;
-  right: -250px;
-  width: 800px;
-  height: 800px;
-  animation: rotation 30s infinite linear;
-  border: 0px;
-  z-index: -1;
-}
-
-#planets2 {
-  position: fixed;
-  top: 23vh;
-  right: -215px;
-  width: 700px;
-  height: 700px;
-  animation: rotation 18s infinite linear;
-  border: 0px;
-  z-index: -1;
-}
-
-#orbit1 {
-  position: fixed;
-  top: 20vh;
-  right: -250px;
-  width: 800px;
-  height: 800px;
-  animation: rotation 300s infinite linear;
-  border: 0px;
-  z-index: -1;
-}
-
-#orbit2 {
-  position: fixed;
-  top: 23vh;
-  right: -215px;
-  width: 700px;
-  height: 700px;
-  animation: rotation 240s infinite linear;
-  border: 0px;
-  z-index: -1;
 }
 
 @keyframes rotation {
@@ -82,13 +45,13 @@
 }
 
 #landing button {
-  background-color: #31e981;
+  background-color: #56e5ac;
   height: 40px;
   width: 100px;
   margin-right: 1rem;
   margin-top: 0.25rem;
   border-radius: 4px;
-  border: 1px solid black;
+  border: 2px solid #00c29f;
   color: black;
 }
 
@@ -101,8 +64,8 @@
 }
 
 #landing h1 {
-  font-size: 5rem;
-  letter-spacing: 2px;
+  font-size: 4rem;
+  letter-spacing: 0.675rem;
 }
 
 #landing h3 {
@@ -116,31 +79,35 @@
 #planet {
   position: fixed;
   border: 0px;
-  z-index: -1;
-  bottom: -63px;
-  right: 56px;
+  /* z-index: 2; */
+  bottom: 100px;
+  right: 35px;
 }
 
 #stars {
   position: fixed;
   border: 0px;
   z-index: -3;
-  top: 0px;
+  bottom: 80px;
+  left: 0px;
+  height: 100vh;
 }
 
-.dimStars {
+#dimStars {
   position: fixed;
   border: 0px;
-  z-index: -3;
-  top: 0px;
-  opacity: 0.3;
+  z-index: -10;
+  bottom: 50px;
+  left: 0px;
+  opacity: 0.4;
+  height: 100vh;
 }
 
 .orbit {
   position: fixed;
   border: 0px;
-  z-index: -1;
-  bottom: -1315px;
+  z-index: -10;
+  bottom: -1100px;
   right: -550px;
   animation: rotation 500s infinite linear;
 }
@@ -148,8 +115,8 @@
 #orbit-moon {
   position: fixed;
   border: 0px;
-  z-index: -1;
-  bottom: -1315px;
+  /* z-index: -1; */
+  bottom: -1100px;
   right: -550px;
   width: 1812px;
   height: 1812px;
