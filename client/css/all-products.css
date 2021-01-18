@@ -5,6 +5,8 @@
   justify-content: space-around;
   align-items: center;
   color: black;
+  top: 100vh;
+  position: absolute;
 }
 
 #products-container {

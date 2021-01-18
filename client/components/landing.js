@@ -22,31 +22,30 @@ const Landing = () => {
             </div>
           </Parallax>
         </div>
-
-        <Parallax speed={-4} zIndex={-5}>
-          <DimStars />
-        </Parallax>
-        <Parallax speed={-2} zIndex={-4}>
-          <Stars />
-        </Parallax>
-        {/* <Parallax speed={2} zIndex={-10}>
-          <Orbit />
-          <div id="orbit-moon">
-            <Moon />
-            <div id="horizontal-moons">
-              <Moon />
-              <Moon />
-            </div>
-            <Moon />
-          </div>
-        </Parallax> */}
-        <Parallax speed={5} zIndex={5}>
-          <Planet />
-        </Parallax>
-        <Parallax speed={12} zIndex={-10}>
+        <Parallax>
           <AllProducts />
         </Parallax>
       </div>
+
+      <DimStars />
+      <Parallax speed={-2} zIndex={-4}>
+        <Stars />
+      </Parallax>
+
+      {/* <Parallax speed={2} zIndex={-10}> */}
+      <Orbit />
+      <div id="orbit-moon">
+        <Moon />
+        <div id="horizontal-moons">
+          <Moon />
+          <Moon />
+        </div>
+        <Moon />
+      </div>
+      {/* </Parallax> */}
+      <Parallax speed={5} zIndex={5}>
+        <Planet />
+      </Parallax>
     </>
   )
 }
