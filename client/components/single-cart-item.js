@@ -14,7 +14,9 @@ const SingleCartItem = props => {
         <input
           type="number"
           name="qty"
-          value={`${item.qty}`}
+          value={
+            item.orders_products ? `${item.orders_products.quantity}` : item.qty
+          }
           onChange={event => handleQtyChange(event, item)}
         />
       </label>
