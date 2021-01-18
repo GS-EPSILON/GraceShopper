@@ -2,9 +2,9 @@ import React, {useEffect, useState} from 'react'
 import Parallax from 'react-rellax'
 import {DimStarsTall, StarsTall, Orbit, Moon, Planet} from './SVG'
 import AllProducts from './all-products'
-import '../css/landing.css'
+import '../css/Home.css'
 
-const Landing = () => {
+const Home = props => {
   const [scroll, setScroll] = useState(false)
 
   useEffect(() => {
@@ -12,11 +12,34 @@ const Landing = () => {
     window.addEventListener('scroll', () => {
       setScroll(window.scrollY > 300)
     })
+
     // Sets the scroll position to top when user reloads
     window.onbeforeunload = function() {
       window.scrollTo(0, 0)
     }
   }, [])
+
+  const useViewport = () => {
+    const [width, setWidth] = React.useState(window.innerWidth)
+    // Add a second state variable "height" and default it to the current window height
+    const [height, setHeight] = React.useState(window.innerHeight)
+
+    React.useEffect(() => {
+      const handleWindowResize = () => {
+        setWidth(window.innerWidth)
+        // Set the height in state as well as the width
+        setHeight(window.innerHeight)
+      }
+
+      window.addEventListener('resize', handleWindowResize)
+      return () => window.removeEventListener('resize', handleWindowResize)
+    }, [])
+
+    // Return both the height and width
+    return {width, height}
+  }
+
+  const {width} = useViewport()
 
   return (
     <>
@@ -40,7 +63,7 @@ const Landing = () => {
         <DimStarsTall />
       </Parallax>
 
-      {scroll ? (
+      {scroll || width < 1400 ? (
         <></>
       ) : (
         <>
@@ -56,9 +79,13 @@ const Landing = () => {
         </>
       )}
 
-      <Parallax speed={-1} zIndex={-5}>
-        <Planet />
-      </Parallax>
+      {width < 1400 ? (
+        <></>
+      ) : (
+        <Parallax speed={-1} zIndex={-5}>
+          <Planet />
+        </Parallax>
+      )}
 
       <div id="landing-products">
         <Parallax speed={2}>
@@ -79,4 +106,4 @@ const Landing = () => {
   )
 }
 
-export default Landing
+export default Home

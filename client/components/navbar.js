@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react'
 import {Link} from 'react-router-dom'
 import '../css/navbar.css'
 
-const Navbar = () => {
+const Navbar = props => {
   const [scroll, setScroll] = useState(false)
 
   useEffect(() => {
@@ -11,9 +11,16 @@ const Navbar = () => {
     })
   }, [])
 
+  const handleClick = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    })
+  }
+
   return (
     <nav className={scroll ? 'scroll' : ''}>
-      <div>
+      <div onClick={handleClick}>
         <Link to="/products">
           <h1>SPACE PLACE</h1>
         </Link>
