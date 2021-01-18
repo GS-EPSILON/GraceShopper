@@ -13,9 +13,7 @@ export class AllProducts extends React.Component {
   }
 
   render() {
-    console.log('Props: ', this.props)
     const {products} = this.props
-    console.log('State: ', this.state)
     return (
       <div>
         {products.map(product => (

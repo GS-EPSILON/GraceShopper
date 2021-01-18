@@ -4,7 +4,7 @@ const {Product} = require('../db/models')
 router.get('/', async (req, res, next) => {
   try {
     const products = await Product.findAll()
-    res.json(products)
+    res.json(products.sort((a, b) => a.id - b.id))
   } catch (error) {
     next(error)
   }
@@ -20,9 +20,10 @@ router.get('/:productId', async (req, res, next) => {
 })
 
 // ADD PRODUCT
-router.post('/:productId', async (req, res, next) => {
+router.post('/', async (req, res, next) => {
   try {
-    const product = await Product.create(req.body.product)
+    console.log('Req.body ==> ', req.body)
+    const product = await Product.create(req.body)
     res.status(200).json(product)
   } catch (error) {
     next(error)
@@ -31,9 +32,11 @@ router.post('/:productId', async (req, res, next) => {
 
 // UPDATE PRODUCT
 router.put('/:productId', async (req, res, next) => {
+  console.log('ProductID: => ', req.params.productId)
+  console.log('NewProduct: => ', req.body)
   try {
     const product = await Product.findByPk(req.params.productId)
-    await product.update(req.body.newProduct)
+    await product.update(req.body)
     res.status(200).json(product)
   } catch (error) {
     next(error)

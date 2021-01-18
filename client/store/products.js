@@ -25,10 +25,11 @@ export const fetchProducts = () => {
 }
 
 export const addProduct = product => {
+  console.log('Product ==> ', product)
   return async dispatch => {
     try {
       const {data} = await axios.post(`/api/products/`, product)
-      dispatch(_addProduct(data))
+      dispatch(fetchProducts())
     } catch (error) {
       console.error(error)
     }
@@ -54,8 +55,8 @@ const allProductsReducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_PRODUCTS:
       return [...action.products]
-    case ADD_PRODUCT:
-      return [...state, ...action.product]
+    // case ADD_PRODUCT:
+    //   return [...state, ...action.product]
     default:
       return state
   }
