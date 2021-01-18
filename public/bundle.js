@@ -1925,9 +1925,7 @@ var Landing = function Landing() {
     zIndex: -4
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_SVG__WEBPACK_IMPORTED_MODULE_2__["Stars"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_SVG__WEBPACK_IMPORTED_MODULE_2__["Orbit"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     id: "orbit-moon"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_SVG__WEBPACK_IMPORTED_MODULE_2__["Moon"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    id: "horizontal-moons"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_SVG__WEBPACK_IMPORTED_MODULE_2__["Moon"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_SVG__WEBPACK_IMPORTED_MODULE_2__["Moon"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_SVG__WEBPACK_IMPORTED_MODULE_2__["Moon"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_rellax__WEBPACK_IMPORTED_MODULE_1___default.a, {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_SVG__WEBPACK_IMPORTED_MODULE_2__["Moon"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_SVG__WEBPACK_IMPORTED_MODULE_2__["Moon"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_rellax__WEBPACK_IMPORTED_MODULE_1___default.a, {
     speed: 5,
     zIndex: 5
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_SVG__WEBPACK_IMPORTED_MODULE_2__["Planet"], null)));

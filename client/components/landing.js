@@ -36,10 +36,10 @@ const Landing = () => {
       <Orbit />
       <div id="orbit-moon">
         <Moon />
-        <div id="horizontal-moons">
+        {/* <div id="horizontal-moons">
           <Moon />
           <Moon />
-        </div>
+        </div> */}
         <Moon />
       </div>
       {/* </Parallax> */}
