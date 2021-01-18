@@ -9,40 +9,34 @@ const Landing = () => {
     <>
       <div id="landing-page">
         <div id="landing">
-          <Parallax speed={-5} zIndex={-10}>
-            <div id="landing-container">
-              <h1>SPACE PLACE</h1>
-              <p>Get you some stuff for your place, from space!</p>
-              <div id="landing-buttons">
-                <button className="button-negative" type="button">
-                  Log In
-                </button>
-                <button type="button">Sign Up</button>
-              </div>
-            </div>
-          </Parallax>
+          <h1>SPACE PLACE</h1>
+          <p>Get you some stuff for your place, from space!</p>
+          <div id="landing-buttons">
+            <button className="button-negative" type="button">
+              Log In
+            </button>
+            <button type="button">Sign Up</button>
+          </div>
         </div>
-        <Parallax>
-          <AllProducts />
-        </Parallax>
+        <AllProducts />
       </div>
 
       <DimStars />
-      <Parallax speed={-2} zIndex={-4}>
-        <Stars />
-      </Parallax>
+      {/* <Parallax speed={-2} zIndex={-4}> */}
+      <Stars />
+      {/* </Parallax> */}
 
-      {/* <Parallax speed={2} zIndex={-10}> */}
-      <Orbit />
-      <div id="orbit-moon">
+      {/* <Parallax speed={2} zIndex={-10}>
+        <Orbit />
+        <div id="orbit-moon">
         <Moon />
-        {/* <div id="horizontal-moons">
+        <div id="horizontal-moons">
           <Moon />
           <Moon />
-        </div> */}
+        </div>
         <Moon />
       </div>
-      {/* </Parallax> */}
+      </Parallax> */}
       <Parallax speed={5} zIndex={5}>
         <Planet />
       </Parallax>

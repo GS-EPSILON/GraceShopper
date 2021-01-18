@@ -19,9 +19,6 @@ export class AllProducts extends React.Component {
     return (
       <React.Fragment>
         <div id="products-container-container">
-          {/* <div id="transition1"></div>
-          <div id="transition2"></div>
-          <div id="transition3"></div> */}
           <div id="products-container">
             <div className="product-container">
               <h2 className="products-h2">Vehicles</h2>
