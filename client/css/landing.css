@@ -1,5 +1,5 @@
 #landing {
-  height: 90vh;
+  height: 95vh;
   color: white;
 }
 
@@ -72,6 +72,15 @@
   }
 }
 
+@keyframes rotation-cw {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+
 #landing button {
   background-color: #31e981;
   height: 40px;
@@ -104,7 +113,7 @@
   font-size: 1rem;
 }
 
-.planet {
+#planet {
   position: fixed;
   border: 0px;
   z-index: -1;
@@ -112,7 +121,7 @@
   right: 56px;
 }
 
-.stars {
+#stars {
   position: fixed;
   border: 0px;
   z-index: -3;
@@ -124,22 +133,42 @@
   border: 0px;
   z-index: -3;
   top: 0px;
+  opacity: 0.3;
 }
 
 .orbit {
   position: fixed;
   border: 0px;
   z-index: -1;
-  bottom: -1326px;
-  right: -595px;
+  bottom: -1315px;
+  right: -550px;
   animation: rotation 500s infinite linear;
 }
 
-.orbitPlanet {
+#orbit-moon {
   position: fixed;
   border: 0px;
-  z-index: 1;
-  top: 0px;
-  right: 0px;
-  /* animation: rotation 500s infinite linear; */
+  z-index: -1;
+  bottom: -1315px;
+  right: -550px;
+  width: 1812px;
+  height: 1812px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  transform-origin: 50% 50%;
+  animation: rotation 100s infinite linear;
+}
+
+#moon {
+  z-index: 10;
+  animation: rotation-cw 100s infinite linear;
+}
+
+#horizontal-moons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
 }

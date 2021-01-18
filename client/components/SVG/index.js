@@ -1,5 +1,5 @@
 export {default as Orbit} from './Orbit'
-export {default as OrbitPlanet} from './OrbitPlanet'
+export {default as Moon} from './Moon'
 export {default as Planet} from './Planet'
 export {default as DimStars} from './DimStars'
 export {default as Stars} from './Stars'

@@ -1,6 +1,6 @@
 import React from 'react'
 import '../css/landing.css'
-import {DimStars, Stars, Orbit, OrbitPlanet, Planet} from './SVG'
+import {DimStars, Stars, Orbit, Moon, Planet} from './SVG'
 
 const Landing = () => {
   return (
@@ -21,7 +21,14 @@ const Landing = () => {
       <DimStars />
       <Stars />
       <Orbit />
-      {/* <OrbitPlanet /> */}
+      <div id="orbit-moon">
+        <Moon />
+        <div id="horizontal-moons">
+          <Moon />
+          <Moon />
+        </div>
+        <Moon />
+      </div>
       <Planet />
     </React.Fragment>
   )

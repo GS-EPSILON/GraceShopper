@@ -5,7 +5,7 @@
   justify-content: space-around;
   align-items: center;
   color: black;
-  background: white;
+  background: #231c35;
 }
 
 #products-container {
@@ -15,7 +15,7 @@
   justify-content: space-around;
   align-items: flex-start;
   color: black;
-  background: white;
+  /* background: white; */
 }
 
 img {

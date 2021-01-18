@@ -4,10 +4,10 @@ function Orbit() {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="500mm"
-      height="500mm"
+      width="476mm"
+      height="476mm"
       version="1.1"
-      viewBox="0 0 500 500"
+      viewBox="0 0 476 476"
       className="orbit"
     >
       <defs>
@@ -18,19 +18,19 @@ function Orbit() {
       </defs>
       <g display="inline">
         <circle
-          cx="251.786"
-          cy="251.539"
-          r="237.209"
+          cx="238"
+          cy="238"
+          r="237.03"
           fill="none"
           fillOpacity="0.522"
           stroke="#fff"
-          strokeDasharray="1.882,3.764"
+          strokeDasharray="1.88057, 3.76115"
           strokeDashoffset="0"
           strokeLinecap="round"
           strokeLinejoin="round"
           strokeMiterlimit="4"
           strokeOpacity="1"
-          strokeWidth="0.941"
+          strokeWidth="0.94"
           display="inline"
         />
       </g>
