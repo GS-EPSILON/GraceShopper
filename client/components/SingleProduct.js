@@ -36,7 +36,7 @@ class SingleProduct extends Component {
                 <span>Qty:</span>
                 <select id="qtyValue">
                   {qtyArray.map(qty => {
-                    return <option key={qty.id}>{qty + 1}</option>
+                    return <option key={qty}>{qty + 1}</option>
                   })}
                 </select>
               </div>

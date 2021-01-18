@@ -44,30 +44,40 @@ const Home = () => {
   }
 
   const {width} = useViewport()
-
+  console.log('width > ', width)
   return (
     <>
       <Parallax speed={-6} zIndex={0}>
-        <div id="welcome">
-          <h1>SPACE PLACE</h1>
-          <p>Get you some stuff for your place, from space!</p>
-          <div id="welcome-buttons">
-            <button className="button-negative" type="button">
-              Log In
-            </button>
-            <button type="button">Sign Up</button>
+        <div id="welcome-container-container">
+          <div id="welcome-container">
+            <div id="welcome">
+              <h1>SPACE PLACE</h1>
+              <p>Get you some stuff for your place, from space!</p>
+              <div id="welcome-buttons">
+                <button className="button-negative" type="button">
+                  Log In
+                </button>
+                <button type="button">Sign Up</button>
+              </div>
+            </div>
           </div>
         </div>
       </Parallax>
 
-      <Parallax speed={-8} zIndex={-4}>
-        <StarsTall />
-      </Parallax>
-      <Parallax speed={-10} zIndex={-4}>
-        <StarsDim />
-      </Parallax>
+      {width < 1200 ? (
+        <></>
+      ) : (
+        <>
+          <Parallax speed={-8}>
+            <StarsTall />
+          </Parallax>
+          <Parallax speed={-10} zIndex={-4}>
+            <StarsDim />
+          </Parallax>
+        </>
+      )}
 
-      {scroll || width < 1400 ? (
+      {/* {scroll || width < 1400 ? (
         <></>
       ) : (
         <>
@@ -81,9 +91,9 @@ const Home = () => {
             <Moon />
           </div>
         </>
-      )}
+      )} */}
 
-      {width < 1400 ? (
+      {width < 1200 ? (
         <></>
       ) : (
         <Parallax speed={-1} zIndex={-5}>
