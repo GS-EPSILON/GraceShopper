@@ -76,6 +76,7 @@ const createApp = () => {
         totalPrice: currentOrder.totalPrice
       }
     } else if (!req.session.cart) {
+      console.log('hello')
       req.session.cart = {
         items: [],
         totalPrice: 0.0
