@@ -10,6 +10,7 @@ class AddProduct extends Component {
     super()
     this.state = {
       name: '',
+      category: '',
       price: 0.0,
       description: '',
       imageURL: '',
@@ -24,6 +25,7 @@ class AddProduct extends Component {
     this.props.addProduct({...this.state})
     this.setState({
       name: '',
+      category: '',
       price: 0.0,
       description: '',
       imageURL: '',
@@ -38,7 +40,7 @@ class AddProduct extends Component {
   }
 
   render() {
-    const {name, price, description, imageURL, quantity} = this.state
+    const {name, category, price, description, imageURL, quantity} = this.state
     const {handleSubmit, handleChange} = this
     console.log('State ==> ', this.state)
     return (
@@ -47,6 +49,10 @@ class AddProduct extends Component {
           <div className="productRow">
             <div className="headerCell">
               <label htmlFor="name">Product Name:</label>
+            </div>
+
+            <div className="headerCell">
+              <label htmlFor="category">Product Category:</label>
             </div>
 
             <div className="headerCell">
@@ -72,6 +78,15 @@ class AddProduct extends Component {
               type="text"
               onChange={handleChange}
               value={name}
+            />
+          </div>
+
+          <div className="inputCell">
+            <input
+              name="category"
+              type="text"
+              onChange={handleChange}
+              value={category}
             />
           </div>
 

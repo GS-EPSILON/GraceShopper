@@ -55,8 +55,6 @@ const allProductsReducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_PRODUCTS:
       return [...action.products]
-    // case ADD_PRODUCT:
-    //   return [...state, ...action.product]
     default:
       return state
   }

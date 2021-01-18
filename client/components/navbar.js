@@ -33,7 +33,7 @@ const Navbar = props => {
             <></>
           ) : (
             <Link className="nav-link" to="/admin">
-              <h2>Admin</h2>
+              <h2>ADMIN</h2>
             </Link>
           )}
           <Link className="nav-link" to="/user">

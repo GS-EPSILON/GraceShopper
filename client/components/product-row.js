@@ -2,12 +2,14 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {updateProduct} from '../store/singleProduct'
 import '../css/productTable.css'
+import {deleteProduct} from '../store/products'
 
 export class ProductRow extends React.Component {
   constructor(props) {
     super()
     this.state = {
       name: props.product.name,
+      category: props.product.category,
       price: props.product.price,
       description: props.product.description,
       imageURL: props.product.imageURL,
@@ -37,6 +39,11 @@ export class ProductRow extends React.Component {
             onChange={this.handleChange}
           />
           <input
+            name="category"
+            value={this.state.category}
+            onChange={this.handleChange}
+          />
+          <input
             name="price"
             value={this.state.price}
             onChange={this.handleChange}
@@ -57,6 +64,12 @@ export class ProductRow extends React.Component {
             onChange={this.handleChange}
           />
           <button type="submit">Update</button>
+          <button
+            type="button"
+            onClick={() => this.props.deleteProduct(this.props.product.id)}
+          >
+            Delete
+          </button>
         </form>
       </div>
     )
@@ -65,7 +78,8 @@ export class ProductRow extends React.Component {
 
 const mapDispatchToProps = dispatch => ({
   updateProduct: (productId, product) =>
-    dispatch(updateProduct(productId, product))
+    dispatch(updateProduct(productId, product)),
+  deleteProduct: productId => dispatch(deleteProduct(productId))
 })
 
 export default connect(null, mapDispatchToProps)(ProductRow)

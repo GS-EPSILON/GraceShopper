@@ -9,33 +9,6 @@ import AddProduct from './add-product'
 import ProductRow from './product-row'
 
 export class ProductTable extends React.Component {
-  constructor() {
-    super()
-    // this.state = {
-    //   defaultState: {
-    //     id: 0,
-    //     name: '',
-    //     price: 0.0,
-    //     description: '',
-    //     imageURL: '',
-    //     quantity: 0,
-    //   },
-    //   updateProduct: {},
-    // }
-    // this.handleChange = this.handleChange.bind(this)
-    // this.handleSubmit = this.handleSubmit.bind(this)
-  }
-
-  // handleSubmit(event) {
-  //   event.preventDefault()
-  //   console.log('Event.target: => ', event.target)
-  //   this.props.updateProduct(this.state)
-  // }
-
-  // handleChange(event) {
-  //   this.setState({[event.target.name]: event.target.value})
-  // }
-
   componentDidMount() {
     try {
       this.props.fetchProducts()
@@ -45,7 +18,6 @@ export class ProductTable extends React.Component {
   }
 
   render() {
-    // const {name, price, description, imageURL, quantity} = this.state
     const {handleSubmit, handleChange} = this
     const {products} = this.props
     return (
