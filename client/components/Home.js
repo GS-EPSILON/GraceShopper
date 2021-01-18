@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import Parallax from 'react-rellax'
-import {StarsDim, StarsTall, Orbit, Moon, Planet} from './SVG'
+import {StarsDimTall, StarsTall, Orbit, Moon, Planet} from './SVG'
 import AllProducts from './all-products'
 import '../css/Home.css'
 
@@ -72,7 +72,7 @@ const Home = () => {
             <StarsTall />
           </Parallax>
           <Parallax speed={-10} zIndex={-4}>
-            <StarsDim />
+            <StarsDimTall />
           </Parallax>
         </>
       )}
@@ -101,7 +101,7 @@ const Home = () => {
         </Parallax>
       )}
 
-      <div id="landing-products">
+      <div id="home-products">
         <Parallax speed={2}>
           <AllProducts />
         </Parallax>
