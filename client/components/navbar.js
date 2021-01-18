@@ -7,7 +7,7 @@ const Navbar = () => {
 
   useEffect(() => {
     window.addEventListener('scroll', () => {
-      setScroll(window.scrollY > 100)
+      setScroll(window.scrollY > 200)
     })
   }, [])
 
@@ -17,15 +17,15 @@ const Navbar = () => {
         <Link to="/products">
           <h1>SPACE PLACE</h1>
         </Link>
-        <span>
+        <span id="nav-span">
           <Link className="nav-link" to="/products">
-            Shop
+            <h2>SHOP</h2>
           </Link>
           <Link className="nav-link" to="/user">
-            User
+            <h2>USER</h2>
           </Link>
           <Link className="nav-link" to="/cart">
-            Cart
+            <h2>CART</h2>
           </Link>
         </span>
       </div>

@@ -1,9 +1,5 @@
-#landing {
-  /* height: 120vh; */
+#intro {
   color: white;
-}
-
-#landing {
   position: absolute;
   top: 35vh;
   left: 11vw;
@@ -14,13 +10,17 @@
   z-index: 5;
 }
 
-#landing-page {
+#landing-products {
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: absolute;
+  top: 130vh;
+  width: 100%;
+  z-index: 10;
 }
 
-#landing-buttons {
+#intro-buttons {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -44,7 +44,7 @@
   }
 }
 
-#landing button {
+#intro button {
   background-color: #56e5ac;
   height: 40px;
   width: 100px;
@@ -55,7 +55,7 @@
   color: black;
 }
 
-#landing .button-negative {
+#intro .button-negative {
   background-color: transparent;
   height: 40px;
   width: 100px;
@@ -63,43 +63,35 @@
   color: white;
 }
 
-#landing h1 {
+#intro h1 {
   font-size: 4rem;
   letter-spacing: 0.675rem;
 }
 
-#landing h3 {
+#intro h3 {
   font-size: 1.25rem;
 }
 
-#landing p {
+#intro p {
   font-size: 1rem;
 }
 
 #planet {
   position: fixed;
   border: 0px;
-  /* z-index: 2; */
   top: 42vh;
-  right: 0vw;
+  right: 3vw;
 }
 
-#stars {
+.stars {
   width: 100vw;
   top: 0;
   left: 0;
-  position: fixed;
+  position: absolute;
   z-index: -9;
 }
 
 #dimStars {
-  /* position: fixed;
-  border: 0px;
-  z-index: -10;
-  bottom: 50px;
-  left: 0px;
-  opacity: 0.4;
-  width: 100vw; */
   z-index: -10;
   width: 100vw;
   top: 0;
@@ -112,7 +104,7 @@
   border: 0px;
   z-index: -10;
   bottom: -1100px;
-  right: -550px;
+  right: -500px;
   animation: rotation 500s infinite linear;
 }
 
@@ -121,7 +113,7 @@
   border: 0px;
   /* z-index: -1; */
   bottom: -1100px;
-  right: -550px;
+  right: -500px;
   width: 1812px;
   height: 1812px;
   display: flex;
@@ -142,4 +134,14 @@
   flex-direction: row;
   justify-content: space-between;
   width: 100%;
+}
+
+#landing-products h1 {
+  margin-top: -13rem;
+  color: white;
+  letter-spacing: 2px;
+}
+
+#landing-products h1:hover {
+  cursor: pointer;
 }
