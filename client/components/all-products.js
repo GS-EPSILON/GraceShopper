@@ -17,20 +17,94 @@ export class AllProducts extends React.Component {
     const {products} = this.props
 
     return (
-      <div id="products-container">
-        {products.map(product => (
-          <Link
-            to={`/products/${product.id}`}
-            key={product.id}
-            className="product"
-          >
-            <img src={product.imageURL} alt={`${product.name}`} />
-            <div>
-              {product.name} – ${product.price / 100}
+      <React.Fragment>
+        <div id="products-container-container">
+          <div id="products-container">
+            <div className="product-container">
+              <h2>Vehicles</h2>
+              <div>
+                {products.map(product => {
+                  if (product.category === 'vehicle')
+                    return (
+                      <Link
+                        to={`/products/${product.id}`}
+                        key={product.id}
+                        className="product"
+                      >
+                        <img src={product.imageURL} alt={`${product.name}`} />
+                        <div>
+                          {product.name} – ${product.price / 100}
+                        </div>
+                      </Link>
+                    )
+                })}
+              </div>
             </div>
-          </Link>
-        ))}
-      </div>
+            <div className="product-container">
+              <h2>Apparel</h2>
+              <div>
+                {products.map(product => {
+                  if (product.category === 'apparel')
+                    return (
+                      <Link
+                        to={`/products/${product.id}`}
+                        key={product.id}
+                        className="product"
+                      >
+                        <img src={product.imageURL} alt={`${product.name}`} />
+                        <div>
+                          {product.name} – ${product.price / 100}
+                        </div>
+                      </Link>
+                    )
+                })}
+              </div>
+            </div>
+
+            <div className="product-container">
+              <h2>Services</h2>
+              <div>
+                {products.map(product => {
+                  if (product.category === 'service')
+                    return (
+                      <Link
+                        to={`/products/${product.id}`}
+                        key={product.id}
+                        className="product"
+                      >
+                        <img src={product.imageURL} alt={`${product.name}`} />
+                        <div>
+                          {product.name} – ${product.price / 100}
+                        </div>
+                      </Link>
+                    )
+                })}
+              </div>
+            </div>
+
+            <div className="product-container">
+              <h2>Swag</h2>
+              <div>
+                {products.map(product => {
+                  if (product.category === 'misc')
+                    return (
+                      <Link
+                        to={`/products/${product.id}`}
+                        key={product.id}
+                        className="product"
+                      >
+                        <img src={product.imageURL} alt={`${product.name}`} />
+                        <div>
+                          {product.name} – ${product.price / 100}
+                        </div>
+                      </Link>
+                    )
+                })}
+              </div>
+            </div>
+          </div>
+        </div>
+      </React.Fragment>
     )
   }
 }
