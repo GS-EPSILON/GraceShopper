@@ -9,14 +9,16 @@ const Order = db.define('order', {
     type: Sequelize.DATE,
     validate: {
       isDate: true
-    }
+    },
+    defaultValue: new Date()
   },
   status: {
     type: Sequelize.ENUM,
     values: ['complete', 'inProgress']
   },
   totalPrice: {
-    type: Sequelize.INTEGER
+    type: Sequelize.INTEGER,
+    defaultValue: 0
   }
 })
 

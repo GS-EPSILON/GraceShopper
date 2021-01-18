@@ -20,6 +20,7 @@
     "start": "node server",
     "start-dev": "NODE_ENV='development' npm run build-client-watch & NODE_ENV='development' npm run start-server",
     "start-server": "NODE_ENV='development' nodemon server -e html,js,scss --ignore public --ignore client",
+    "seed-start-dev": "npm run seed & npm run start-dev",
     "test": "NODE_ENV='test' mocha \"./server/**/*.spec.js\" \"./client/**/*.spec.js\" \"./script/**/*.spec.js\" --require @babel/polyfill --require @babel/register"
   },
   "husky": {
