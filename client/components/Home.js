@@ -8,15 +8,19 @@ const Home = () => {
   const [scroll, setScroll] = useState(false)
 
   useEffect(() => {
-    // Sets scroll state to true when user has scroll more than 300px. Used to hide the orbit+planet
-    window.addEventListener('scroll', () => {
-      setScroll(window.scrollY > 300)
-    })
-
     // Sets the scroll position to top when user reloads
     window.onbeforeunload = function() {
       window.scrollTo(0, 0)
     }
+
+    // Sets scroll state to true when user has scroll more than 300px. Used to hide the orbit+planet
+    const handleScroll = () => {
+      setScroll(window.scrollY > 300)
+    }
+    // Add event listener when component mounts.
+    // Remove event listener when component unmounts
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
   const useViewport = () => {
