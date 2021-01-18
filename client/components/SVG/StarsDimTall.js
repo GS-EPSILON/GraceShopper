@@ -1,6 +1,6 @@
 import React from 'react'
 
-function DimStarsTall() {
+function StarsDimTall() {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -1579,4 +1579,4 @@ function DimStarsTall() {
   )
 }
 
-export default DimStarsTall
+export default StarsDimTall

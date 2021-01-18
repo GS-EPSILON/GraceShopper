@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react'
 import {Link} from 'react-router-dom'
 import '../css/navbar.css'
 
-const Navbar = props => {
+const Navbar = () => {
   const [scroll, setScroll] = useState(false)
 
   useEffect(() => {

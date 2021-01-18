@@ -1,10 +1,10 @@
 import React, {useEffect, useState} from 'react'
 import Parallax from 'react-rellax'
-import {DimStarsTall, StarsTall, Orbit, Moon, Planet} from './SVG'
+import {StarsDim, StarsTall, Orbit, Moon, Planet} from './SVG'
 import AllProducts from './all-products'
 import '../css/Home.css'
 
-const Home = props => {
+const Home = () => {
   const [scroll, setScroll] = useState(false)
 
   useEffect(() => {
@@ -44,10 +44,10 @@ const Home = props => {
   return (
     <>
       <Parallax speed={-6} zIndex={0}>
-        <div id="intro">
+        <div id="welcome">
           <h1>SPACE PLACE</h1>
           <p>Get you some stuff for your place, from space!</p>
-          <div id="intro-buttons">
+          <div id="welcome-buttons">
             <button className="button-negative" type="button">
               Log In
             </button>
@@ -60,7 +60,7 @@ const Home = props => {
         <StarsTall />
       </Parallax>
       <Parallax speed={-10} zIndex={-4}>
-        <DimStarsTall />
+        <StarsDim />
       </Parallax>
 
       {scroll || width < 1400 ? (

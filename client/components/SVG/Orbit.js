@@ -8,7 +8,7 @@ function Orbit() {
       height="476mm"
       version="1.1"
       viewBox="0 0 476 476"
-      className="orbit"
+      id="orbit"
     >
       <defs>
         <path d="M82.538 -57.696H279.417V0.9890000000000043H82.538z" />

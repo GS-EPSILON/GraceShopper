@@ -18,8 +18,17 @@ a {
   text-decoration: none;
 }
 
-label {
-  display: block;
+a:hover {
+  cursor: pointer;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+h1 {
+  font-family: 'Yusei Magic', sans-serif;
+  letter-spacing: 0.375rem;
 }
 
 form div {
@@ -27,6 +36,6 @@ form div {
   display: inline-block;
 }
 
-button:hover {
-  cursor: pointer;
+label {
+  display: block;
 }
