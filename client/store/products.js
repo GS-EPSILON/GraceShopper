@@ -2,15 +2,15 @@ import axios from 'axios'
 
 // ACTION TYPES
 const GET_PRODUCTS = 'GET_PRODUCTS'
-// const ADD_PRODUCT = 'ADD_PRODUCT'
-// const UPDATE_PRODUCT = 'UPDATE_PRODUCT'
-// const REMOVE_PRODUCT = 'REMOVE_PRODUCT'
+const ADD_PRODUCT = 'ADD_PRODUCT'
 
 // ACTION CREATORS
 export const getProducts = products => ({type: GET_PRODUCTS, products})
-// const addProduct = (product) => ({type: ADD_PRODUCT, product})
-// const updateProduct = (product) => ({type: UPDATE_PRODUCT, product})
-// const removeProduct = () => ({type: REMOVE_PRODUCT})
+
+export const _addProduct = product => ({
+  type: ADD_PRODUCT,
+  product
+})
 
 // THUNK CREATORS
 export const fetchProducts = () => {
@@ -18,6 +18,29 @@ export const fetchProducts = () => {
     try {
       const {data: products} = await axios.get('/api/products')
       dispatch(getProducts(products))
+    } catch (error) {
+      console.error(error)
+    }
+  }
+}
+
+export const addProduct = product => {
+  console.log('Product ==> ', product)
+  return async dispatch => {
+    try {
+      const {data} = await axios.post(`/api/products/`, product)
+      dispatch(fetchProducts())
+    } catch (error) {
+      console.error(error)
+    }
+  }
+}
+
+export const deleteProduct = productId => {
+  return async dispatch => {
+    try {
+      await axios.delete(`/api/products/${productId}`)
+      dispatch(fetchProducts())
     } catch (error) {
       console.error(error)
     }
