@@ -2,6 +2,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {ShippingForm} from './shipping-form'
 import {fetchCart} from '../store/cart'
+import '../css/checkout.css'
 
 export class Checkout extends React.Component {
   componentDidMount() {
@@ -14,9 +15,12 @@ export class Checkout extends React.Component {
 
   render() {
     const {cart} = this.props
-    console.log('CART>>>>>', cart)
+
     return (
       <div className="checkout-container mt-4">
+        <div className="totalPrice">
+          <h1>Total Price:{cart.totalPrice} </h1>
+        </div>
         <ShippingForm />
       </div>
     )

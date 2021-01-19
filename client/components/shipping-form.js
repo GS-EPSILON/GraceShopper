@@ -5,7 +5,7 @@ export const ShippingForm = props => {
   return (
     <div className="shipping-form">
       <Row>
-        <Col sm="12" md={{size: 6, offset: 0}} className="text-center">
+        <Col sm="12" md={{size: 6, offset: 3}} className="text-center">
           <h2>Checkout</h2>
         </Col>
       </Row>
