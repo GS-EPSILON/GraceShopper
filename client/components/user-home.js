@@ -1,23 +1,17 @@
 import React, {useState} from 'react'
-import PropTypes from 'prop-types'
-import {connect, useDispatch} from 'react-redux'
 import {Login, Signup} from './auth-form'
-import {logout} from '../store/user'
+import UserCard from './UserCard'
 import '../css/user-home.css'
 
-export const UserHome = props => {
+const UserHome = props => {
   const [status, setStatus] = useState('logged out')
-  const dispatch = useDispatch()
-  const {email, isLoggedIn} = props
+  const {isLoggedIn} = props
 
   return (
     <div id="user-home">
       <div id="user-container">
         {isLoggedIn === true ? (
-          <>
-            <h3>Welcome, {email}</h3>
-            <a onClick={() => dispatch(logout())}>Log Out</a>
-          </>
+          <UserCard />
         ) : status === 'logged out' ? (
           <>
             <h1>Log In</h1>
@@ -44,20 +38,4 @@ export const UserHome = props => {
   )
 }
 
-/**
- * CONTAINER
- */
-const mapState = state => {
-  return {
-    email: state.user.email
-  }
-}
-
-export default connect(mapState)(UserHome)
-
-/**
- * PROP TYPES
- */
-UserHome.propTypes = {
-  email: PropTypes.string
-}
+export default UserHome
