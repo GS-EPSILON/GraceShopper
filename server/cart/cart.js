@@ -34,6 +34,7 @@ class Cart {
             imageUrl: item.imageURL
           }
           cart.items.push(cartItem)
+          this.calculateOrderTotalPrice(cart, cartItem.qty, cartItem.price)
         }
       } else if (cart.id) {
         //conditional: item is in the cart, user logged in
@@ -103,6 +104,9 @@ class Cart {
         }
         for (let i = 0; i < cart.items.length; i++) {
           if (cart.items[i].id === item.id) {
+            const qty = cart.items[i].qty
+            const price = cart.items[i].price * -1
+            this.calculateOrderTotalPrice(cart, qty, price)
             cart.items.splice(i, 1)
             deleted = true
           }
@@ -140,6 +144,7 @@ class Cart {
       } else {
         for (let i = 0; i < cart.items.length; i++) {
           if (cart.items[i].qty !== newQty && cart.items[i].id === item.id) {
+            cart.totalPrice -= cart.items[i].qty * cart.items[i].price
             cart.items[i].qty = newQty
             this.calculateOrderTotalPrice(cart, newQty, item.price)
             edited = true
@@ -162,6 +167,7 @@ class Cart {
         return error
       }
     } else {
+      console.log('HERE AT CLEARCART!!!')
       this.clearCart(cart)
     }
   }
