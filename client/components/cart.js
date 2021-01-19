@@ -2,6 +2,8 @@ import React from 'react'
 import {connect} from 'react-redux'
 import SingleCartItem from './single-cart-item'
 import {fetchCart} from '../store/cart'
+import {Link} from 'react-router-dom'
+
 //tiny change
 class Cart extends React.Component {
   componentDidMount() {
@@ -31,6 +33,10 @@ class Cart extends React.Component {
         ) : (
           <h1>Loading</h1>
         )}
+        <Link to="/checkout">
+          {' '}
+          <h3>Checkout</h3>{' '}
+        </Link>
       </div>
     )
   }
