@@ -1,5 +1,4 @@
 import React, {useState} from 'react'
-import {connect} from 'react-redux'
 import {Login, Signup} from './auth-form'
 import UserCard from './UserCard'
 import '../css/user-home.css'
@@ -38,15 +37,3 @@ export const UserHome = props => {
     </div>
   )
 }
-
-/**
- * CONTAINER
- */
-const mapState = state => {
-  return {
-    email: state.user.email,
-    user: state.user
-  }
-}
-
-export default connect(mapState)(UserHome)
