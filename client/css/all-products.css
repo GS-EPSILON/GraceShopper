@@ -1,6 +1,6 @@
 img {
-  width: 250px;
-  height: 350px;
+  width: 200px;
+  height: 300px;
   object-fit: cover;
   border: 2px solid black;
 }

@@ -3,29 +3,42 @@ import PropTypes from 'prop-types'
 import {connect, useDispatch} from 'react-redux'
 import {Login, Signup} from './auth-form'
 import {logout} from '../store/user'
+import '../css/user-home.css'
 
 export const UserHome = props => {
   const [status, setStatus] = useState('logged out')
   const dispatch = useDispatch()
   const {email, isLoggedIn} = props
 
-  return isLoggedIn === true ? (
-    <div>
-      <h3>Welcome, {email}</h3>
-      <a onClick={() => dispatch(logout())}>Log Out</a>
-    </div>
-  ) : status === 'logged out' ? (
-    <div>
-      <h1>Log In</h1>
-      <Login />
-      <a onClick={() => setStatus('sign up')}>Sign Up</a>
-    </div>
-  ) : (
-    <div>
-      <h1>Sign Up</h1>
-      <Signup />
-      <div>
-        <a onClick={() => setStatus('logged out')}>Log in</a>
+  return (
+    <div id="user-home">
+      <div id="user-container">
+        {isLoggedIn === true ? (
+          <>
+            <h3>Welcome, {email}</h3>
+            <a onClick={() => dispatch(logout())}>Log Out</a>
+          </>
+        ) : status === 'logged out' ? (
+          <>
+            <h1>Log In</h1>
+            <Login />
+            <div className="extra">
+              Want some sweet space deals?
+              <a onClick={() => setStatus('sign up')}> Sign Up</a>
+            </div>
+          </>
+        ) : (
+          <>
+            <h1>Sign Up</h1>
+            <Signup />
+            <>
+              <div className="extra">
+                Already have an account?
+                <a onClick={() => setStatus('logged out')}> Log in</a>
+              </div>
+            </>
+          </>
+        )}
       </div>
     </div>
   )
