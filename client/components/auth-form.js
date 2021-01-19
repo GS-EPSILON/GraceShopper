@@ -2,7 +2,6 @@ import React from 'react'
 import {connect} from 'react-redux'
 import PropTypes from 'prop-types'
 import {auth} from '../store'
-import {Button, Form} from 'semantic-ui-react'
 import '../css/auth-form.css'
 /**
  * COMPONENT
