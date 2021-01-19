@@ -8,7 +8,7 @@ const SingleCartItem = props => {
     <div className="single-cart-item">
       <h1>{item.name}</h1>
       <h3>{item.price}</h3>
-      <img src={item.imageUrl} />
+      <img src={item.imageURL} />
       <label htmlFor="qty">
         Quantity:
         <input
