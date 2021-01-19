@@ -18,15 +18,17 @@
   display: table-row;
   width: 125px;
   border: 1px solid #cccccc;
-  padding: 0.25rem;
+  padding: 0.375rem;
   border-radius: 2px;
   overflow: hidden;
   text-overflow: ellipsis;
+  font-size: 0.75rem;
+  margin: 0.125rem;
 }
 
 .headerCell {
   display: table-cell;
-  width: 139px;
+  width: 143px;
 }
 
 .submitCell {
@@ -35,10 +37,6 @@
 
 .inputCell {
   display: table-cell;
-}
-
-input {
-  margin: 2px;
 }
 
 /* .addProductRow {
