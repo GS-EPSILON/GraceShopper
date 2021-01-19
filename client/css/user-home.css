@@ -1,7 +1,54 @@
-a {
+#user-home {
+  position: relative;
+  display: grid;
+  align-content: flex-start;
+  justify-content: center;
+  height: 100vh;
+}
+
+#user-container {
+  padding: 8rem 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#user-container h1 {
+  color: white;
+}
+
+#user-container p {
+  background: #f2f2f2;
+}
+
+input {
+  width: 346px;
+  height: 25px;
+  margin: 0.5rem 0rem;
+}
+
+#user-container a {
   color: blue;
 }
 
-a:hover {
-  cursor: pointer;
+#user-container button {
+  width: 100%;
+  margin: 0.5rem 0rem 0rem 0rem;
+  height: 30px;
+}
+
+#red {
+  color: #dd3e4c;
+  border: 1px solid #dd3e4c;
+}
+
+.extra {
+  background: #f2f2f2;
+  padding: 0.5rem 1rem;
+  border: 2px solid #666666;
+  border-radius: 5px;
+  width: 350px;
+  text-align: center;
+  font-size: 0.875rem;
+  padding: 0.5rem 1rem;
 }

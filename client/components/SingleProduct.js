@@ -20,8 +20,6 @@ class SingleProduct extends Component {
     const {product} = this.props
     const qtyArray = [...Array(product.quantity).keys()]
 
-    const selectQty = document.getElementById('qtyValue')
-
     return (
       <div>
         <div className="single-product">
@@ -38,17 +36,15 @@ class SingleProduct extends Component {
                 <span>Qty:</span>
                 <select id="qtyValue">
                   {qtyArray.map(qty => {
-                    return <option key={qty.id}>{qty + 1}</option>
+                    return <option key={qty}>{qty + 1}</option>
                   })}
                 </select>
               </div>
               <button
                 type="button"
                 onClick={() => {
-                  let qty = 1
-                  if (selectQty) {
-                    qty = selectQty.value
-                  }
+                  const selectQty = document.getElementById('qtyValue')
+                  let qty = selectQty ? selectQty.value : 1
                   this.props.pushToCart(product.id, qty)
                 }}
               >

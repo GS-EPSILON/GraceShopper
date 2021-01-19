@@ -1,0 +1,40 @@
+img {
+  width: 200px;
+  height: 300px;
+  object-fit: cover;
+  border: 2px solid black;
+}
+
+.product {
+  margin: 1rem 2rem 1rem 0rem;
+}
+
+#products-container h2 {
+  font-size: 1.5rem;
+  font-family: 'Yusei Magic', sans-serif;
+}
+
+#products-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: flex-start;
+  color: black;
+  background: #eeeeee;
+  border-radius: 10px;
+}
+
+.product-container {
+  display: flex;
+  flex-direction: column;
+  padding: 3rem 2rem;
+  margin: 2rem 1rem;
+  border-radius: 5px;
+}
+
+.product-container div {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}

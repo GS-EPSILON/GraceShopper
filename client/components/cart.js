@@ -2,7 +2,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 import SingleCartItem from './single-cart-item'
 import {fetchCart} from '../store/cart'
-
+//tiny change
 class Cart extends React.Component {
   componentDidMount() {
     try {

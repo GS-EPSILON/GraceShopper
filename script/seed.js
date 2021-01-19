@@ -16,7 +16,13 @@ async function seed() {
   for (let j = 0; j < orders.length; j++) {
     for (let i = 1; i < 3 + Math.floor(Math.random() * 10); i++) {
       let rando = Math.floor(Math.random() * products.length)
-      await orders[j].addProduct(products[rando])
+      let randoQuantity = Math.floor(Math.random() * 4 + 1)
+      await orders[j].addProduct(products[rando], {
+        through: {
+          quantity: randoQuantity,
+          priceAtPurchase: products[rando].price * randoQuantity
+        }
+      })
     }
   }
 

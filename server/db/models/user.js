@@ -28,7 +28,13 @@ const User = db.define('user', {
     type: Sequelize.STRING
   },
   imgUrl: {
-    type: Sequelize.TEXT
+    type: Sequelize.TEXT,
+    defaultValue:
+      'https://images2.minutemediacdn.com/image/upload/c_crop,h_1298,w_2309,x_0,y_0/v1564367449/shape/mentalfloss/591391-gettyimages-1130251242.jpg?itok=4W95Yg_X'
+  },
+  isAdmin: {
+    type: Sequelize.BOOLEAN,
+    defaultValue: false
   }
 })
 
