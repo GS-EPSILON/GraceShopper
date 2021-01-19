@@ -1,5 +1,17 @@
 const router = require('express').Router()
 const {Product} = require('../db/models')
+const adminsOnly = require('../utils/adminsOnly')
+
+const checkIfUserIsAdmin = (req, res, next) => {
+  if (req.user.isAdmin && req.user) {
+    next()
+  } else {
+    const err = new Error(`DON'T HAVE ADMIN RIGHTS`)
+    err.status = 401
+    next(err)
+  }
+  // console.log('REQ.USER.ADMIN > ', req.user.isAdmin)
+}
 
 router.get('/', async (req, res, next) => {
   try {
@@ -20,9 +32,8 @@ router.get('/:productId', async (req, res, next) => {
 })
 
 // ADD PRODUCT
-router.post('/', async (req, res, next) => {
+router.post('/', adminsOnly, async (req, res, next) => {
   try {
-    console.log('Req.body ==> ', req.body)
     const product = await Product.create(req.body)
     res.status(200).json(product)
   } catch (error) {
@@ -31,7 +42,7 @@ router.post('/', async (req, res, next) => {
 })
 
 // UPDATE PRODUCT
-router.put('/:productId', async (req, res, next) => {
+router.put('/:productId', adminsOnly, async (req, res, next) => {
   console.log('ProductID: => ', req.params.productId)
   console.log('NewProduct: => ', req.body)
   try {
@@ -44,7 +55,7 @@ router.put('/:productId', async (req, res, next) => {
 })
 
 // DELETE PRODUCT
-router.delete('/:productId', async (req, res, next) => {
+router.delete('/:productId', adminsOnly, async (req, res, next) => {
   try {
     await Product.destroy({
       where: {
