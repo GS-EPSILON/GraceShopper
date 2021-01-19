@@ -15,7 +15,6 @@ export class AllProducts extends React.Component {
 
   render() {
     const {products} = this.props
-
     return (
       <React.Fragment>
         <div id="products-container-container">

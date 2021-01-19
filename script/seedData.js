@@ -23,6 +23,11 @@ const usersSeed = [
     // name: 'Shawn Wayans',
     email: 'wayans5@gmail.com',
     password: '123'
+  },
+  {
+    email: 'admin@admin.com',
+    password: '12345',
+    isAdmin: true
   }
 ]
 
