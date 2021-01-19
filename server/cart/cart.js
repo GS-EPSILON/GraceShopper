@@ -155,9 +155,9 @@ class Cart {
   static async checkoutOrder(cart) {
     if (cart.id) {
       try {
-        const order = Order.findByPk(cart.id)
+        const order = await Order.findByPk(cart.id)
         order.status = 'complete'
-        await order.save()
+        order.save()
       } catch (error) {
         return error
       }

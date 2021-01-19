@@ -35,6 +35,17 @@ router.put('/', async (req, res, next) => {
   }
 })
 
+router.put('/checkout', async (req, res, next) => {
+  try {
+    console.log('REQ.BODY!!!!', req.body)
+    const cart = req.body.cart
+    Cart.checkoutOrder(cart)
+    res.status(200).redirect('/')
+  } catch (error) {
+    next(error)
+  }
+})
+
 router.delete('/:itemId', async (req, res, next) => {
   try {
     const cart = req.session.cart
