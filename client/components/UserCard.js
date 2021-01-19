@@ -52,47 +52,49 @@ const UserCard = props => {
       ) : (
         <div id="orders-container">
           <h1>Order History</h1>
-          {orders.map(order => {
-            const {products} = order
-            return (
-              <div id="prev-order" key={order.id}>
-                <div id="order-header">
-                  <div className="order-header-text">
-                    <div>ORDER PLACED</div>
-                    <div>{order.date}</div>
+          <div id="prev-orders">
+            {orders.map(order => {
+              const {products} = order
+              return (
+                <div id="prev-order" key={order.id}>
+                  <div id="order-header">
+                    <div className="order-header-text">
+                      <div>ORDER PLACED</div>
+                      <div>{order.date}</div>
+                    </div>
+                    <div className="order-header-text">
+                      <div>ORDER #</div>
+                      <div>{order.id}</div>
+                    </div>
+                    <div className="price">
+                      <div>TOTAL</div>
+                      <div>${order.totalPrice}</div>
+                    </div>
                   </div>
-                  <div className="order-header-text">
-                    <div>ORDER #</div>
-                    <div>{order.id}</div>
-                  </div>
-                  <div className="price">
-                    <div>TOTAL</div>
-                    <div>${order.totalPrice}</div>
-                  </div>
-                </div>
-                <div id="order-products">
-                  {products.map(product => {
-                    return (
-                      <div key={product.id} id="product">
-                        <img src={product.imageURL} />
-                        <div id="order-description">
-                          <h4>{product.name}</h4>
-                          <div className="product-description">
-                            {product.description}
+                  <div id="order-products">
+                    {products.map(product => {
+                      return (
+                        <div key={product.id} id="product">
+                          <img src={product.imageURL} />
+                          <div id="order-description">
+                            <h4>{product.name}</h4>
+                            <div className="product-description">
+                              {product.description}
+                            </div>
+                          </div>
+                          <div id="cost">
+                            <div>Qty</div>
+                            <div>Price</div>
+                            <div>Total Price</div>
                           </div>
                         </div>
-                        <div id="cost">
-                          <div>Qty</div>
-                          <div>Price</div>
-                          <div>Total Price</div>
-                        </div>
-                      </div>
-                    )
-                  })}
+                      )
+                    })}
+                  </div>
                 </div>
-              </div>
-            )
-          })}
+              )
+            })}
+          </div>
         </div>
       )}
     </div>

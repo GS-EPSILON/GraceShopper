@@ -79,11 +79,20 @@
   margin: 0rem 1.5rem;
 }
 
+#prev-orders {
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem 1.5rem 0rem 1.5rem;
+  background: #eeeeee;
+  border-radius: 5px;
+}
+
 #prev-order {
   background: white;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
   border-radius: 5px;
   border-bottom: 1px solid #cccccc;
+  box-shadow: 0 2px 4px 0 #d4d4d5, 0 0 0 1px #d4d4d5;
 }
 
 #cost {

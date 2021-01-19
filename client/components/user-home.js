@@ -3,7 +3,7 @@ import {Login, Signup} from './auth-form'
 import UserCard from './UserCard'
 import '../css/user-home.css'
 
-export const UserHome = props => {
+const UserHome = props => {
   const [status, setStatus] = useState('logged out')
   const {isLoggedIn} = props
 
@@ -37,3 +37,5 @@ export const UserHome = props => {
     </div>
   )
 }
+
+export default UserHome
