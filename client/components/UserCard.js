@@ -37,13 +37,13 @@ const UserCard = props => {
         <div id="card-info">
           <div>{email}</div>
 
+          {!orderError ? <></> : <div id="err">No previous orders!</div>}
           <button type="button" onClick={toggleOrders}>
             ORDER HISTORY
           </button>
           <button type="button" id="red" onClick={() => dispatch(logout())}>
             LOG OUT
           </button>
-          {!orderError ? <></> : <div id="err">No previous orders!</div>}
         </div>
       </div>
 
