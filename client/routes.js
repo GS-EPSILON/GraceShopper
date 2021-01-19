@@ -7,8 +7,10 @@ import {
   Signup,
   UserHome,
   Cart,
-  Home,
+  AllProducts,
   SingleProduct,
+  Checkout,
+  Home,
   Admin
 } from './components'
 import {me} from './store'
@@ -33,6 +35,7 @@ class Routes extends Component {
         <Route exact path="/products" component={Home} />
         <Route exact path="/" render={() => <Redirect to="/products" />} />
         <Route path="/products/:productId" component={SingleProduct} />
+        <Route path="/checkout" component={Checkout} />
         <Route
           path="/user"
           render={() => <UserHome isLoggedIn={isLoggedIn} />}
