@@ -6,6 +6,7 @@ import history from './history'
 import store from './store'
 import App from './app'
 
+import 'bootstrap/dist/css/bootstrap.min.css'
 // establishes socket connection
 import './socket'
 
