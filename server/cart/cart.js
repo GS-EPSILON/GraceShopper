@@ -49,6 +49,7 @@ class Cart {
           orderProductToUpdate.dataValues.orderId
         )
         await this.calculateOrderTotalPrice(orderToUpdate, qty, item.price)
+        this.calculateOrderTotalPrice(cart, qty, item.price)
       } else {
         //conditional: item is already in the cart, no user is logged in
         const itemId = cart.items.findIndex(cartItem => cartItem.id === item.id)
