@@ -1,0 +1,49 @@
+#user-home {
+  position: relative;
+  display: grid;
+  align-content: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+#user-container {
+  padding: 3rem 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#user-container h1 {
+  color: white;
+}
+
+#user-container p {
+  background: #f2f2f2;
+}
+
+input {
+  width: 346px;
+  height: 25px;
+  margin: 0.5rem 0rem;
+}
+
+#user-container a {
+  color: blue;
+}
+
+#user-container button {
+  width: 350px;
+  margin: 0.5rem 0rem 0rem 0rem;
+  height: 30px;
+}
+
+.extra {
+  background: #f2f2f2;
+  padding: 0.5rem 1rem;
+  border: 2px solid #666666;
+  border-radius: 5px;
+  width: 350px;
+  text-align: center;
+  font-size: 0.875rem;
+  padding: 0.5rem 1rem;
+}
