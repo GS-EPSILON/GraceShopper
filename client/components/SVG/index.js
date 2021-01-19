@@ -1,7 +1,5 @@
 export {default as Orbit} from './Orbit'
 export {default as Moon} from './Moon'
 export {default as Planet} from './Planet'
-export {default as StarsDim} from './StarsDim'
-export {default as Stars} from './Stars'
 export {default as StarsTall} from './StarsTall'
 export {default as StarsDimTall} from './StarsDimTall'
