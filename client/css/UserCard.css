@@ -1,0 +1,116 @@
+#card {
+  height: 450px;
+  width: 350px;
+  display: flex;
+  flex-direction: column;
+  background: #f2f2f2;
+  border-radius: 5px;
+  margin: 3.85rem 0rem;
+}
+
+#card-info {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 150px;
+}
+
+#card img {
+  border-radius: 5px 5px 0px 0px;
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border: 0px;
+}
+
+#card-container {
+  display: flex;
+  flex-direction: row;
+}
+
+#order-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  background: #f6f6f6;
+  padding: 0.5rem 1rem;
+  font-size: 0.75rem;
+  border-radius: 5px 5px 0px 0px;
+  border-bottom: 1px solid #cccccc;
+}
+.order-header-text {
+  margin-right: 2rem;
+  min-width: 150px;
+}
+
+#orders-container {
+  margin: 0rem 3rem;
+  max-width: 1000px;
+}
+
+#orders-container h1 {
+  margin-bottom: 1rem;
+}
+
+#order-products {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.8rem;
+}
+#order-products img {
+  height: 100px;
+  width: 100px;
+  border: 0px;
+}
+
+#product {
+  display: flex;
+  flex-direction: row;
+  padding: 1rem;
+  border-bottom: 1px solid #dddddd;
+}
+
+#order-description {
+  display: flex;
+  flex-direction: column;
+  max-height: 100px;
+  width: 100%;
+  margin: 0rem 1.5rem;
+}
+
+#prev-order {
+  background: white;
+  margin-bottom: 1rem;
+  border-radius: 5px;
+  border-bottom: 1px solid #cccccc;
+}
+
+#cost {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 150px;
+}
+
+#cost div {
+  text-align: right;
+  font-size: 0.75rem;
+}
+
+#err {
+  text-align: center;
+  color: red;
+}
+
+.product-description {
+  height: 100%;
+  text-overflow: clip;
+  overflow: hidden;
+}
+
+.price {
+  width: 100%;
+  text-align: right;
+  margin: 0rem;
+}

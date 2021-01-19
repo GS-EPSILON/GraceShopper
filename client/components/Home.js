@@ -44,7 +44,7 @@ const Home = () => {
   }
 
   const {width} = useViewport()
-  console.log('width > ', width)
+
   return (
     <>
       <Parallax speed={-6} zIndex={0}>

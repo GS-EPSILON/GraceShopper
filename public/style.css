@@ -6,11 +6,11 @@
 
 body {
   font-family: sans-serif;
-  background: url('./BG.png');
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: center;
-  background-size: cover;
+  background: url('./BG.png') !important;
+  background-repeat: no-repeat !important;
+  background-attachment: fixed !important;
+  background-position: center !important;
+  background-size: cover !important;
 }
 
 a {
