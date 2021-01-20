@@ -1,4 +1,4 @@
-const {Order, OrderProduct} = require('../db/models')
+const {Order, OrderProduct, User} = require('../db/models')
 
 class Cart {
   static async addToCart(item, qty, cart) {
@@ -167,7 +167,21 @@ class Cart {
         return error
       }
     } else {
-      console.log('HERE AT CLEARCART!!!')
+      const guestUser = await User.create({email: 'guest'})
+      const guestOrder = await Order.create({
+        userId: guestUser.id,
+        status: 'complete',
+        totalPrice: cart.totalPrice
+      })
+      cart.items.forEach(async item => {
+        //await guestOrder.addProduct(item.id);
+        await OrderProduct.create({
+          orderId: guestOrder.id,
+          productId: item.id,
+          quantity: item.qty,
+          priceAtPurchase: item.price
+        })
+      })
       this.clearCart(cart)
     }
   }
