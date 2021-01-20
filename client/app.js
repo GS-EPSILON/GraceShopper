@@ -2,6 +2,7 @@ import React from 'react'
 
 import {Navbar} from './components'
 import Routes from './routes'
+import {ToastContainer} from 'react-toastify'
 import './css/app.css'
 
 const App = () => {
@@ -9,6 +10,7 @@ const App = () => {
     <>
       <Navbar />
       <div id="content">
+        <ToastContainer />
         <Routes />
       </div>
     </>

@@ -3,7 +3,12 @@ import {connect} from 'react-redux'
 import {fetchSingleProduct} from '../store/singleProduct'
 import {pushToCart} from '../store/cart'
 
+
+import {toast} from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
+
 import '../css/SingleProduct.css'
+
 
 class SingleProduct extends Component {
   componentDidMount() {
@@ -55,6 +60,9 @@ class SingleProduct extends Component {
                 type="button"
                 id="cart-button"
                 onClick={() => {
+                  toast(`Added ${product.name} to Cart`, {
+                    position: toast.POSITION.TOP_RIGHT
+                  })
                   const selectQty = document.getElementById('qtyValue')
                   let qty = selectQty ? selectQty.value : 1
                   this.props.pushToCart(product.id, qty)
