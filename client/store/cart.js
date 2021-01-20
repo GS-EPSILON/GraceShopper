@@ -3,7 +3,7 @@ import axios from 'axios'
 //action types
 
 const GET_CART = 'GET_CART'
-
+const UPDATE_CART_STATUS = 'UPDATE_CART_STATUS'
 //action creator
 
 //GET CART
@@ -17,6 +17,17 @@ export const fetchCart = () => {
     try {
       const {data} = await axios.get('/cart/api')
       dispatch(getCart(data))
+    } catch (error) {
+      console.error(error)
+    }
+  }
+}
+export const updateStatus = cart => {
+  return async dispatch => {
+    try {
+      console.log('CART INSIDE THUNK!!!', cart)
+      await axios.put('/cart/checkout', {cart})
+      dispatch(fetchCart())
     } catch (error) {
       console.error(error)
     }

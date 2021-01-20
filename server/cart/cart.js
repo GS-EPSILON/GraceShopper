@@ -1,4 +1,4 @@
-const {Order, OrderProduct} = require('../db/models')
+const {Order, OrderProduct, User} = require('../db/models')
 
 class Cart {
   static async addToCart(item, qty, cart) {
@@ -31,9 +31,10 @@ class Cart {
             name: item.name,
             price: item.price,
             qty: qty || 1,
-            imageUrl: item.imageURL
+            imageURL: item.imageURL
           }
           cart.items.push(cartItem)
+          this.calculateOrderTotalPrice(cart, cartItem.qty, cartItem.price)
         }
       } else if (cart.id) {
         //conditional: item is in the cart, user logged in
@@ -103,6 +104,9 @@ class Cart {
         }
         for (let i = 0; i < cart.items.length; i++) {
           if (cart.items[i].id === item.id) {
+            const qty = cart.items[i].qty
+            const price = cart.items[i].price * -1
+            this.calculateOrderTotalPrice(cart, qty, price)
             cart.items.splice(i, 1)
             deleted = true
           }
@@ -140,6 +144,7 @@ class Cart {
       } else {
         for (let i = 0; i < cart.items.length; i++) {
           if (cart.items[i].qty !== newQty && cart.items[i].id === item.id) {
+            cart.totalPrice -= cart.items[i].qty * cart.items[i].price
             cart.items[i].qty = newQty
             this.calculateOrderTotalPrice(cart, newQty, item.price)
             edited = true
@@ -155,13 +160,28 @@ class Cart {
   static async checkoutOrder(cart) {
     if (cart.id) {
       try {
-        const order = Order.findByPk(cart.id)
+        const order = await Order.findByPk(cart.id)
         order.status = 'complete'
-        await order.save()
+        order.save()
       } catch (error) {
         return error
       }
     } else {
+      const guestUser = await User.create({email: 'guest'})
+      const guestOrder = await Order.create({
+        userId: guestUser.id,
+        status: 'complete',
+        totalPrice: cart.totalPrice
+      })
+      cart.items.forEach(async item => {
+        //await guestOrder.addProduct(item.id);
+        await OrderProduct.create({
+          orderId: guestOrder.id,
+          productId: item.id,
+          quantity: item.qty,
+          priceAtPurchase: item.price
+        })
+      })
       this.clearCart(cart)
     }
   }

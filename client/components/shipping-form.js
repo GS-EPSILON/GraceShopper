@@ -1,6 +1,7 @@
 // import React from 'react'
 // import {Row, Col, Form, FormGroup, Label, Input, Button} from 'reactstrap'
 
+
 // export const ShippingForm = props => {
 //   return (
 //     <div className="shipping-form">
@@ -60,3 +61,4 @@
 //     </div>
 //   )
 // }
+
