@@ -19,7 +19,7 @@ class Cart extends React.Component {
       <div className="cart">
         <h1>Your Cart</h1>
         {cart.items ? (
-          <div>
+          <div id="cart-product-container">
             {cart.items.length > 0 ? (
               cart.items.map(item => {
                 return <SingleCartItem key={item.id} item={item} />
