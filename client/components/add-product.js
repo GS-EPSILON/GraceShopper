@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 
 import {addProduct} from '../store/products'
+import {toast} from 'react-toastify'
 import '../css/add-product.css'
 
 class AddProduct extends Component {
@@ -22,7 +23,11 @@ class AddProduct extends Component {
 
   handleSubmit(event) {
     event.preventDefault()
+
     this.props.addProduct({...this.state})
+    toast.success(`Added ${this.state.name}`, {
+      position: toast.POSITION.TOP_RIGHT
+    })
     this.setState({
       name: '',
       category: '',
@@ -79,6 +84,7 @@ class AddProduct extends Component {
                 onChange={handleChange}
                 value={name}
                 placeholder="Name"
+                required
               />
             </div>
 
@@ -89,6 +95,7 @@ class AddProduct extends Component {
                 onChange={handleChange}
                 value={category}
                 placeholder="Category"
+                required
               />
             </div>
 
@@ -99,6 +106,7 @@ class AddProduct extends Component {
                 onChange={handleChange}
                 value={price}
                 placeholder="Price"
+                required
               />
             </div>
 
@@ -109,6 +117,7 @@ class AddProduct extends Component {
                 onChange={handleChange}
                 value={description}
                 placeholder="Description"
+                required
               />
             </div>
 
@@ -119,6 +128,7 @@ class AddProduct extends Component {
                 onChange={handleChange}
                 value={imageURL}
                 placeholder="Image URL"
+                required
               />
             </div>
 
@@ -130,6 +140,7 @@ class AddProduct extends Component {
                 onChange={handleChange}
                 value={quantity}
                 placeholder="Quantity"
+                required
               />
             </div>
 
