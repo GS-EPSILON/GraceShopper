@@ -5,6 +5,9 @@ import {Link} from 'react-router-dom'
 import {fetchSingleProduct} from '../store/singleProduct'
 import {pushToCart} from '../store/cart'
 
+import {toast} from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
+
 class SingleProduct extends Component {
   constructor() {
     super()
@@ -43,6 +46,9 @@ class SingleProduct extends Component {
               <button
                 type="button"
                 onClick={() => {
+                  toast(`Added ${product.name} to Cart`, {
+                    position: toast.POSITION.TOP_RIGHT
+                  })
                   const selectQty = document.getElementById('qtyValue')
                   let qty = selectQty ? selectQty.value : 1
                   this.props.pushToCart(product.id, qty)
