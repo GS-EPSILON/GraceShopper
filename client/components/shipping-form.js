@@ -2,10 +2,11 @@ import React from 'react'
 import {Row, Col, Form, FormGroup, Label, Input, Button} from 'reactstrap'
 
 export const ShippingForm = props => {
+  const {handleSubmit, cart} = props
   return (
     <div className="shipping-form">
       <Row>
-        <Col sm="12" md={{size: 6, offset: 0}} className="text-center">
+        <Col sm="12" md={{size: 6, offset: 3}} className="text-center">
           <h2>Checkout</h2>
         </Col>
       </Row>
@@ -53,7 +54,9 @@ export const ShippingForm = props => {
               <Input name="securityCode" placeholder="CVC" />
             </FormGroup>
             <p>Billing address same as shipping</p>
-            <Button>Submit</Button>
+            <button type="button" onClick={() => handleSubmit(cart)}>
+              Submit
+            </button>
           </Form>
         </Col>
       </Row>
