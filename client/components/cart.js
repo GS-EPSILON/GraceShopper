@@ -35,7 +35,7 @@ class Cart extends React.Component {
             ) : (
               <h1>Loading</h1>
             )}
-            <div id="total">TOTAL: {cart.totalPrice}</div>
+            <div id="total">TOTAL ${cart.totalPrice}</div>
             <div id="button-container">
               <Link to="/checkout">
                 <button type="button" className="green">
