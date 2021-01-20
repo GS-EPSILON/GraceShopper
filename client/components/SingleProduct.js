@@ -47,21 +47,23 @@ class SingleProduct extends Component {
                       })}
                     </select>
                   </div>
+                  <button
+                    type="button"
+                    id="cart-button"
+                    onClick={() => {
+                      const selectQty = document.getElementById('qtyValue')
+                      let qty = selectQty ? selectQty.value : 1
+                      this.props.pushToCart(product.id, qty)
+                    }}
+                  >
+                    Add To Cart
+                  </button>
                 </div>
               ) : (
-                <></>
+                <button type="button" id="cart-button" disabled>
+                  Add To Cart
+                </button>
               )}
-              <button
-                type="button"
-                id="cart-button"
-                onClick={() => {
-                  const selectQty = document.getElementById('qtyValue')
-                  let qty = selectQty ? selectQty.value : 1
-                  this.props.pushToCart(product.id, qty)
-                }}
-              >
-                Add To Cart
-              </button>
             </div>
           </div>
         </div>
