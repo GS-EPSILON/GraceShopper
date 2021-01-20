@@ -78,7 +78,7 @@ class AddProduct extends Component {
                 type="text"
                 onChange={handleChange}
                 value={name}
-                placeHolder="Name"
+                placeholder="Name"
               />
             </div>
 
@@ -88,7 +88,7 @@ class AddProduct extends Component {
                 type="text"
                 onChange={handleChange}
                 value={category}
-                placeHolder="Category"
+                placeholder="Category"
               />
             </div>
 
@@ -98,7 +98,7 @@ class AddProduct extends Component {
                 type="decimal"
                 onChange={handleChange}
                 value={price}
-                placeHolder="Price"
+                placeholder="Price"
               />
             </div>
 
@@ -108,7 +108,7 @@ class AddProduct extends Component {
                 type="text"
                 onChange={handleChange}
                 value={description}
-                placeHolder="Description"
+                placeholder="Description"
               />
             </div>
 
@@ -118,7 +118,7 @@ class AddProduct extends Component {
                 type="url"
                 onChange={handleChange}
                 value={imageURL}
-                placeHolder="Image URL"
+                placeholder="Image URL"
               />
             </div>
 
@@ -129,7 +129,7 @@ class AddProduct extends Component {
                 min="0"
                 onChange={handleChange}
                 value={quantity}
-                placeHolder="Quantity"
+                placeholder="Quantity"
               />
             </div>
 
