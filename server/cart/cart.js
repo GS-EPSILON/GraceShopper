@@ -31,7 +31,7 @@ class Cart {
             name: item.name,
             price: item.price,
             qty: qty || 1,
-            imageUrl: item.imageURL
+            imageURL: item.imageURL
           }
           cart.items.push(cartItem)
         }
