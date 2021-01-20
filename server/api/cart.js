@@ -38,9 +38,13 @@ router.put('/', async (req, res, next) => {
 router.put('/checkout', async (req, res, next) => {
   try {
     const cart = req.body.cart
-    await Cart.checkoutOrder(cart)
-    req.session.cart = cart
-    res.status(200).redirect('/')
+    if (cart.items.length > 0) {
+      await Cart.checkoutOrder(cart)
+      req.session.cart = cart
+      res.status(200).redirect('/')
+    } else {
+      res.status(403).send('Nothing in cart')
+    }
   } catch (error) {
     next(error)
   }
