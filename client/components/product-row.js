@@ -29,7 +29,7 @@ export class ProductRow extends React.Component {
   handleSubmit(event) {
     event.preventDefault()
     toast(`Updated ${this.state.name}`, {
-      position: toast.POSITION.TOP_RIGHT
+      position: toast.POSITION.BOTTOM_RIGHT
     })
     this.props.updateProduct(this.props.product.id, this.state)
   }
@@ -74,7 +74,7 @@ export class ProductRow extends React.Component {
             className="red"
             onClick={() => {
               toast.error(`Deleted ${this.state.name}`, {
-                position: toast.POSITION.TOP_RIGHT
+                position: toast.POSITION.BOTTOM_RIGHT
               })
               return this.props.deleteProduct(this.props.product.id)
             }}
