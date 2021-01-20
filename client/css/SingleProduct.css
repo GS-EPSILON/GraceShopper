@@ -15,6 +15,9 @@
   margin: 1rem;
   max-width: 600px;
   min-width: 400px;
+  justify-content: space-between;
+  display: flex;
+  flex-direction: column;
 }
 
 #single-product img {
@@ -32,7 +35,7 @@ p {
 
 #purchase {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-between;
 }
 
@@ -44,19 +47,16 @@ p {
 #qty {
   display: flex;
   flex-direction: row;
+  margin-top: 1rem;
 }
 
 #qty select {
   margin: 0rem 1rem;
+  width: 100px;
 }
 
-#add-to-cart {
-  display: flex;
-  flex-direction: row;
-  height: 30px;
-  align-items: center;
-}
-
-#add-to-cart button {
-  padding: 0.25rem 0.75rem;
+#cart-button {
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 1rem;
 }
