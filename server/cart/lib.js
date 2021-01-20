@@ -162,7 +162,7 @@ class Cart {
       try {
         const order = await Order.findByPk(cart.id)
         order.status = 'complete'
-        order.save()
+        await order.save()
       } catch (error) {
         return error
       }

@@ -1,8 +1,8 @@
 const router = require('express').Router()
 const {Product} = require('../db/models/')
-const Cart = require('./cart')
+const Cart = require('../cart/lib')
 
-router.get('/api/', (req, res, next) => {
+router.get('/', (req, res, next) => {
   const cart = req.session.cart
   res.status(200).send(cart)
 })
@@ -26,7 +26,7 @@ router.put('/', async (req, res, next) => {
     const item = req.body.item
     const qty = parseInt(req.body.qty, 10)
     if (await Cart.editCartItemQty(item, qty, cart)) {
-      res.status(200).end()
+      res.status(200).redirect('/')
     } else {
       res.status(401).send('Invalid quantity')
     }
@@ -38,9 +38,13 @@ router.put('/', async (req, res, next) => {
 router.put('/checkout', async (req, res, next) => {
   try {
     const cart = req.body.cart
-    Cart.checkoutOrder(cart)
-    req.session.cart = cart
-    res.status(200).end()
+    if (cart.items.length > 0) {
+      await Cart.checkoutOrder(cart)
+      req.session.cart = cart
+      res.status(200).redirect('/')
+    } else {
+      res.status(403).send('Nothing in cart')
+    }
   } catch (error) {
     next(error)
   }
@@ -52,7 +56,7 @@ router.delete('/:itemId', async (req, res, next) => {
     const item = await Product.findByPk(req.params.itemId)
 
     if (await Cart.removeCartItem(item, cart)) {
-      res.status(204).end()
+      res.status(204).redirect('/')
     } else {
       res.status(404).send('No item found')
     }
