@@ -1,15 +1,23 @@
 import React, {useState, useEffect} from 'react'
 import {Link} from 'react-router-dom'
-import {connect} from 'react-redux'
+import {connect, useDispatch} from 'react-redux'
+import {fetchCart} from '../store/cart'
 import '../css/navbar.css'
 
 const Navbar = props => {
   const [scroll, setScroll] = useState(false)
   const {isAdmin} = props
+  const dispatch = useDispatch()
+  let totalQty = 0
+  if (props.cart.items) {
+    totalQty = props.cart.items.reduce((acc, elem) => acc + elem.qty, 0)
+  }
+
   useEffect(() => {
     window.addEventListener('scroll', () => {
       setScroll(window.scrollY > 200)
     })
+    dispatch(fetchCart())
   }, [])
 
   const handleClick = () => {
@@ -40,7 +48,7 @@ const Navbar = props => {
             <h2>USER</h2>
           </Link>
           <Link className="nav-link" to="/cart">
-            <h2>CART</h2>
+            <h2>CART {!props.cart.items ? <></> : `(${totalQty})`}</h2>
           </Link>
         </span>
       </div>
@@ -50,7 +58,8 @@ const Navbar = props => {
 
 const mapState = state => {
   return {
-    isAdmin: !!state.user.isAdmin
+    isAdmin: !!state.user.isAdmin,
+    cart: state.cart
   }
 }
 
