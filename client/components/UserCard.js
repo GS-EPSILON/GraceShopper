@@ -5,19 +5,17 @@ import axios from 'axios'
 import '../css/UserCard.css'
 
 const UserCard = props => {
-  const [userInfo, setUserInfo] = useState({})
+  // const [userInfo, setUserInfo] = useState({})
   const [orders, setOrders] = useState([])
   const [showOrders, setShowOrders] = useState(false)
   const [orderError, setOrderError] = useState(false)
-  const {id} = props
+  const {user} = props
   const dispatch = useDispatch()
 
   useEffect(() => {
     const fetch = async () => {
-      const {data} = await axios.get(`/api/users/${id}`)
-      setUserInfo(data)
-      if (data.orders)
-        setOrders(data.orders.filter(order => order.status === 'complete'))
+      const {data} = await axios.get(`/api/users/${user.id}`)
+      setOrders(data)
     }
     fetch()
   }, [])
@@ -26,8 +24,9 @@ const UserCard = props => {
     if (orders.length > 0) setShowOrders(!showOrders)
     else setOrderError(true)
   }
-  const {email, imgUrl} = userInfo
-
+  const {email, imgUrl} = user
+  console.log('user > ', user)
+  console.log('orders > ', orders)
   return !orders ? (
     <></>
   ) : (
@@ -73,6 +72,7 @@ const UserCard = props => {
                   </div>
                   <div id="order-products">
                     {products.map(product => {
+                      let {quantity, priceAtPurchase} = product.orders_products
                       return (
                         <div key={product.id} id="product">
                           <img src={product.imageURL} />
@@ -83,9 +83,9 @@ const UserCard = props => {
                             </div>
                           </div>
                           <div id="cost">
-                            <div>Qty</div>
-                            <div>Price</div>
-                            <div>Total Price</div>
+                            <div>QTY: {quantity}</div>
+                            <div>PRICE: {priceAtPurchase}</div>
+                            <div>TOTAL PRICE: {quantity * priceAtPurchase}</div>
                           </div>
                         </div>
                       )
@@ -105,7 +105,7 @@ const UserCard = props => {
  */
 const mapState = state => {
   return {
-    id: state.user.id
+    user: state.user
   }
 }
 
