@@ -20,16 +20,12 @@ export class Checkout extends React.Component {
   handleSubmit(cart) {
     event.preventDefault()
     this.props.updateStatus(cart)
-    console.log('Submit cart!!', cart)
   }
 
   render() {
     const {cart} = this.props
     return (
       <div className="checkout-container mt-4">
-        <div className="totalPrice">
-          <h1>Total Price:{cart.totalPrice} </h1>
-        </div>
         <ShippingForm handleSubmit={this.handleSubmit} cart={cart} />
       </div>
     )
