@@ -34,8 +34,7 @@ class Cart extends React.Component {
           <h1>Loading</h1>
         )}
         <Link to="/checkout">
-          {' '}
-          <h3>Checkout</h3>{' '}
+          <h3>Checkout</h3>
         </Link>
       </div>
     )
