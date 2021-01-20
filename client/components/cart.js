@@ -16,26 +16,35 @@ class Cart extends React.Component {
   render() {
     const {cart} = this.props
     return (
-      <div className="cart">
-        <h1>Your Cart</h1>
-        {cart.items ? (
-          <div>
-            {cart.items.length > 0 ? (
-              cart.items.map(item => {
-                return <SingleCartItem key={item.id} item={item} />
-              })
-            ) : (
-              <div>
-                <h3>There are no items in your space cart!</h3>
+      <div id="cart-container-container">
+        <div id="cart-container">
+          <h1>Your Cart</h1>
+          <div className="cart">
+            {cart.items ? (
+              <div id="cart-product-container">
+                {cart.items.length > 0 ? (
+                  cart.items.map(item => {
+                    return <SingleCartItem key={item.id} item={item} />
+                  })
+                ) : (
+                  <div>
+                    <h3>There are no items in your space cart!</h3>
+                  </div>
+                )}
               </div>
+            ) : (
+              <h1>Loading</h1>
             )}
+            <div id="total">TOTAL: {cart.totalPrice}</div>
+            <div id="button-container">
+              <Link to="/checkout">
+                <button type="button" className="green">
+                  <div>Checkout</div>
+                </button>
+              </Link>
+            </div>
           </div>
-        ) : (
-          <h1>Loading</h1>
-        )}
-        <Link to="/checkout">
-          <h3>Checkout</h3>
-        </Link>
+        </div>
       </div>
     )
   }

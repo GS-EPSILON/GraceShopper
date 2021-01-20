@@ -24,11 +24,7 @@ export class Checkout extends React.Component {
 
   render() {
     const {cart} = this.props
-    return (
-      <div className="checkout-container mt-4">
-        <ShippingForm handleSubmit={this.handleSubmit} cart={cart} />
-      </div>
-    )
+    return <ShippingForm handleSubmit={this.handleSubmit} cart={cart} />
   }
 }
 

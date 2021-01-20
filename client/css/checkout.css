@@ -1,9 +1,93 @@
-
 /* div {
   color: aliceblue;
 } */
 
-
 .totalPrice {
   text-align: right;
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+  min-width: 150px;
+  max-width: 500px;
+  background: #f6f6f6;
+  padding: 1rem;
+  font-size: 0.875rem;
+  margin: 0rem 0rem 1rem 1rem;
+  border-radius: 5px;
+  min-height: 75px;
+  justify-content: space-between;
+  box-shadow: 0 2px 4px 0 #d4d4d5, 0 0 0 1px #d4d4d5;
+}
+
+.shipping-form {
+  display: grid;
+  place-content: center;
+  font-size: 0.875rem;
+  color: #666666;
+}
+
+.shipping-form input {
+  width: 300px;
+  color: #999999;
+  padding: 0.25rem;
+  margin-bottom: 0.75rem;
+}
+
+.shipping-form h4 {
+  margin-bottom: 1rem;
+  color: #333333;
+}
+
+#box-container-container {
+  margin: 5rem 2rem;
+}
+
+#box-container {
+  display: flex;
+  flex-direction: row;
+  padding: 1rem 1rem 0rem 0rem;
+  background: #eeeeee;
+  border-radius: 5px;
+  margin-top: 1rem;
+}
+
+.green {
+  background-color: #56e5ac;
+  border: 2px solid #00c29f;
+  padding: 0.25rem;
+  margin-top: 1rem;
+}
+.shipping-form h1 {
+  color: white;
+}
+
+#confirmation-container {
+  display: grid;
+  place-content: center;
+}
+
+#confirmation {
+  color: white;
+  text-align: center;
+  margin-top: 25rem;
+}
+
+#confirmation h1 {
+  font-size: 3rem;
+  margin: 0.5rem;
+}
+
+#confirmation h5 {
+  font-size: 1rem;
+}
+
+#total {
+  width: 100%;
+  text-align: center;
+  padding: 0.5rem 0rem;
+  font-size: 0.875rem;
+  background: white;
+  box-shadow: 0 2px 4px 0 #d4d4d5, 0 0 0 1px #d4d4d5;
 }
