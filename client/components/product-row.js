@@ -3,6 +3,8 @@ import {connect} from 'react-redux'
 import {updateProduct} from '../store/singleProduct'
 import '../css/productTable.css'
 import {deleteProduct} from '../store/products'
+import {toast} from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 export class ProductRow extends React.Component {
   constructor(props) {
@@ -26,6 +28,9 @@ export class ProductRow extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault()
+    toast(`Updated ${this.state.name}`, {
+      position: toast.POSITION.TOP_RIGHT
+    })
     this.props.updateProduct(this.props.product.id, this.state)
   }
 
@@ -67,7 +72,12 @@ export class ProductRow extends React.Component {
           <button
             type="button"
             className="red"
-            onClick={() => this.props.deleteProduct(this.props.product.id)}
+            onClick={() => {
+              toast.error(`Deleted ${this.state.name}`, {
+                position: toast.POSITION.TOP_RIGHT
+              })
+              return this.props.deleteProduct(this.props.product.id)
+            }}
           >
             Delete
           </button>
