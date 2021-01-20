@@ -62,3 +62,23 @@
 .shipping-form h1 {
   color: white;
 }
+
+#confirmation-container {
+  display: grid;
+  place-content: center;
+}
+
+#confirmation {
+  color: white;
+  text-align: center;
+  margin-top: 25rem;
+}
+
+#confirmation h1 {
+  font-size: 3rem;
+  margin: 0.5rem;
+}
+
+#confirmation h5 {
+  font-size: 1rem;
+}

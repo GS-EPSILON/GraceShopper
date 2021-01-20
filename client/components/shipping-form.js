@@ -64,9 +64,11 @@ export const ShippingForm = props => {
       </div>
     </div>
   ) : (
-    <div>
-      <h1>Thank you.</h1>
-      <h5>YOU'RE ORDER HAS BEEN MADE</h5>
+    <div id="confirmation-container">
+      <div id="confirmation">
+        <h1>Thank you!</h1>
+        <h5>🚀 YOUR ORDER IS ON THE WAY 🚀</h5>
+      </div>
     </div>
   )
 }
