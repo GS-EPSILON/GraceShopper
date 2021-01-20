@@ -10,7 +10,12 @@ const Navbar = props => {
   const dispatch = useDispatch()
   let totalQty = 0
   if (props.cart.items) {
-    totalQty = props.cart.items.reduce((acc, elem) => acc + elem.qty, 0)
+    totalQty = props.cart.items.reduce((acc, elem) => {
+      if (elem.qty) {
+        return acc + elem.qty
+      }
+      return acc + elem.orders_products.quantity
+    }, 0)
   }
 
   useEffect(() => {
