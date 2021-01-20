@@ -25,8 +25,8 @@ class SingleProduct extends Component {
         <div id="single-product">
           <img src={product.imageURL} />
           <div id="product-details">
-            <h2>{product.name}</h2>
-            <p>{product.description}</p>
+            <h2 id="product-h2">{product.name}</h2>
+            <div id="product-p">{product.description}</div>
             <div id="purchase">
               <div id="price">
                 <div>BTC: {product.price}</div>
