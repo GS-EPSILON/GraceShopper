@@ -26,7 +26,7 @@ class AddProduct extends Component {
 
     this.props.addProduct({...this.state})
     toast.success(`Added ${this.state.name}`, {
-      position: toast.POSITION.TOP_RIGHT
+      position: toast.POSITION.BOTTOM_RIGHT
     })
     this.setState({
       name: '',
