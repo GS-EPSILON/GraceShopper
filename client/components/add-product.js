@@ -44,94 +44,103 @@ class AddProduct extends Component {
     const {handleSubmit, handleChange} = this
     console.log('State ==> ', this.state)
     return (
-      <div className="productRow">
-        <form onSubmit={handleSubmit}>
-          <div className="productRow">
-            <div className="headerCell">
-              <label htmlFor="name">Product Name:</label>
+      <>
+        <div className="product-header">
+          <div className="headerCell">
+            <label htmlFor="name">Product Name:</label>
+          </div>
+
+          <div className="headerCell">
+            <label htmlFor="category">Product Category:</label>
+          </div>
+
+          <div className="headerCell">
+            <label htmlFor="price">Product Price:</label>
+          </div>
+
+          <div className="headerCell">
+            <label htmlFor="description">Product Description:</label>
+          </div>
+
+          <div className="headerCell">
+            <label htmlFor="imageURL">Product Image:</label>
+          </div>
+
+          <div className="headerCell">
+            <label htmlFor="quantity">Product Quantity:</label>
+          </div>
+        </div>
+        <div className="productRow">
+          <form onSubmit={handleSubmit}>
+            <div className="inputCell">
+              <input
+                name="name"
+                type="text"
+                onChange={handleChange}
+                value={name}
+                placeHolder="Name"
+              />
             </div>
 
-            <div className="headerCell">
-              <label htmlFor="category">Product Category:</label>
+            <div className="inputCell">
+              <input
+                name="category"
+                type="text"
+                onChange={handleChange}
+                value={category}
+                placeHolder="Category"
+              />
             </div>
 
-            <div className="headerCell">
-              <label htmlFor="price">Product Price:</label>
+            <div className="inputCell">
+              <input
+                name="price"
+                type="decimal"
+                onChange={handleChange}
+                value={price}
+                placeHolder="Price"
+              />
             </div>
 
-            <div className="headerCell">
-              <label htmlFor="description">Product Description:</label>
+            <div className="inputCell">
+              <input
+                name="description"
+                type="text"
+                onChange={handleChange}
+                value={description}
+                placeHolder="Description"
+              />
             </div>
 
-            <div className="headerCell">
-              <label htmlFor="imageURL">Product Image:</label>
+            <div className="inputCell">
+              <input
+                name="imageURL"
+                type="url"
+                onChange={handleChange}
+                value={imageURL}
+                placeHolder="Image URL"
+              />
             </div>
 
-            <div className="headerCell">
-              <label htmlFor="quantity">Product Quantity:</label>
+            <div className="inputCell">
+              <input
+                name="quantity"
+                type="number"
+                min="0"
+                onChange={handleChange}
+                value={quantity}
+                placeHolder="Quantity"
+              />
             </div>
-          </div>
 
-          <div className="inputCell">
-            <input
-              name="name"
-              type="text"
-              onChange={handleChange}
-              value={name}
-            />
-          </div>
-
-          <div className="inputCell">
-            <input
-              name="category"
-              type="text"
-              onChange={handleChange}
-              value={category}
-            />
-          </div>
-
-          <div className="inputCell">
-            <input
-              name="price"
-              type="decimal"
-              onChange={handleChange}
-              value={price}
-            />
-          </div>
-
-          <div className="inputCell">
-            <input
-              name="description"
-              type="text"
-              onChange={handleChange}
-              value={description}
-            />
-          </div>
-
-          <div className="inputCell">
-            <input
-              name="imageURL"
-              type="url"
-              onChange={handleChange}
-              value={imageURL}
-            />
-          </div>
-
-          <div className="inputCell">
-            <input
-              name="quantity"
-              type="number"
-              min="0"
-              onChange={handleChange}
-              value={quantity}
-            />
-          </div>
-
-          <div className="submitCell">
-            <button type="submit">Add</button>
-          </div>
-        </form>
-      </div>
+            <div className="submitCell">
+              <button type="submit" className="green">
+                Add
+              </button>
+            </div>
+          </form>
+        </div>
+      </>
     )
   }
 }

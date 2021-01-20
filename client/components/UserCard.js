@@ -41,7 +41,11 @@ const UserCard = props => {
           <button type="button" onClick={toggleOrders}>
             ORDER HISTORY
           </button>
-          <button type="button" id="red" onClick={() => dispatch(logout())}>
+          <button
+            type="button"
+            className="red"
+            onClick={() => dispatch(logout())}
+          >
             LOG OUT
           </button>
         </div>

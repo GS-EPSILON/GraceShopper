@@ -22,9 +22,7 @@ export class ProductTable extends React.Component {
     const {products} = this.props
     return (
       <div className="productTable">
-        <div className="addProductRow">
-          <AddProduct />
-        </div>
+        <AddProduct />
 
         {products.map(product => (
           <ProductRow

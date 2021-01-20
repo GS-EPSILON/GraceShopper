@@ -2,9 +2,8 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 
-import UserRow from './user-row'
 import {fetchUsers} from '../store/users'
-import '../css/productTable.css'
+import '../css/userTable.css'
 
 export class UserTable extends React.Component {
   componentDidMount() {
@@ -19,19 +18,23 @@ export class UserTable extends React.Component {
     const {users} = this.props
     console.log('Props: ==> ', this.props)
     return (
-      <div className="productTable">
-        <div className="headerCell">
-          <table>
-            <tbody>
-              <tr>
-                <td>User Email:</td>
-                <td>User ImageURL:</td>
-                <td>Admin:</td>
+      <div id="userTable">
+        <table>
+          <tbody>
+            <tr id="userTable-header">
+              <td>User Email:</td>
+              <td>User ImageURL:</td>
+              <td>Admin:</td>
+            </tr>
+            {users.map(user => (
+              <tr key={user.id}>
+                <td>{user.email}</td>
+                <td>{user.imgUrl}</td>
+                <td>{user.isAdmin.toString()}</td>
               </tr>
-            </tbody>
-          </table>
-        </div>
-        {users.map(user => <UserRow key={user.id} user={user} />)}
+            ))}
+          </tbody>
+        </table>
       </div>
     )
   }

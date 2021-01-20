@@ -5,8 +5,8 @@ import '../css/admin.css'
 
 const Admin = () => {
   return (
-    <div className="admin-page">
-      <div className="table">
+    <div id="admin-page">
+      <div id="table">
         <ProductTable />
         <UserTable />
       </div>

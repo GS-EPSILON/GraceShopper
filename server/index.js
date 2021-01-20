@@ -61,6 +61,7 @@ const createApp = () => {
       saveUninitialized: false
     })
   )
+
   app.use(passport.initialize())
   app.use(passport.session())
 
@@ -76,7 +77,6 @@ const createApp = () => {
         totalPrice: currentOrder.totalPrice
       }
     } else if (!req.session.cart) {
-      console.log('hello')
       req.session.cart = {
         items: [],
         totalPrice: 0.0

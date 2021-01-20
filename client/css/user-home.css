@@ -21,7 +21,7 @@
   background: #f2f2f2;
 }
 
-input {
+#login input {
   width: 346px;
   height: 25px;
   margin: 0.5rem 0rem;
@@ -37,7 +37,7 @@ input {
   height: 30px;
 }
 
-#red {
+.red {
   color: #dd3e4c;
   border: 1px solid #dd3e4c;
 }
