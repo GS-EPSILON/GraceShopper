@@ -28,8 +28,8 @@
   border-radius: 5px 0px 0px 5px;
 }
 
-#single-product h2,
-p {
+#product-h2,
+#product-p {
   margin-bottom: 2rem;
 }
 
