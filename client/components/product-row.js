@@ -66,6 +66,7 @@ export class ProductRow extends React.Component {
           <button type="submit">Update</button>
           <button
             type="button"
+            className="red"
             onClick={() => this.props.deleteProduct(this.props.product.id)}
           >
             Delete
