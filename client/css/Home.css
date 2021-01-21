@@ -137,7 +137,7 @@
 
 .stars {
   width: 100vw;
-  top: -30vh;
+  /* top: -30vh; */
   left: 0;
   position: fixed;
   z-index: -9;
