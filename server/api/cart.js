@@ -24,8 +24,6 @@ router.put('/', async (req, res, next) => {
     const cart = req.session.cart
     const item = req.body.item
     const qty = parseInt(req.body.qty, 10)
-    console.log('typeof qty in PUT /api/cart --> ', typeof qty)
-
     if (Cart.editCartItemQty(item, qty, cart)) {
       res.status(200).redirect('/')
     } else {

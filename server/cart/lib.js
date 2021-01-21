@@ -102,6 +102,7 @@ class Cart {
           await this.calculateOrderTotalPrice(orderToUpdate, quantity, subPrice)
 
           deleted = true
+          return deleted
         }
         for (let i = 0; i < cart.items.length; i++) {
           if (cart.items[i].id === item.id) {
@@ -131,14 +132,24 @@ class Cart {
           const orderProductToUpdate = await OrderProduct.findOne({
             where: {orderId: cart.id, productId: item.id}
           })
+          orderToUpdate.totalPrice -=
+            orderProductToUpdate.quantity * orderProductToUpdate.priceAtPurchase
+
           const qtyDifference = newQty - orderProductToUpdate.quantity
           await this.calculateCartItemQtyAndPrice(
             orderProductToUpdate,
             qtyDifference,
             item.price
           )
-          orderToUpdate.totalPrice =
-            orderProductToUpdate.priceAtPurchase * orderProductToUpdate.quantity
+          await orderProductToUpdate.save()
+          this.calculateOrderTotalPrice(
+            orderToUpdate,
+            orderProductToUpdate.quantity,
+            orderProductToUpdate.priceAtPurchase
+          )
+          // orderToUpdate.totalPrice +=
+          //   orderProductToUpdate.priceAtPurchase *
+          //   orderProductToUpdate.quantity;
           await orderToUpdate.save()
           edited = true
         }
@@ -190,6 +201,7 @@ class Cart {
   static async calculateOrderTotalPrice(order, qty, itemPrice) {
     order.totalPrice += itemPrice * qty
     if (order.id) {
+      console.log(order)
       await order.save()
     }
   }
