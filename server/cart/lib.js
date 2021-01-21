@@ -155,6 +155,10 @@ class Cart {
         }
       } else {
         for (let i = 0; i < cart.items.length; i++) {
+          if (newQty === 0) {
+            this.removeCartItem(item, cart)
+            return true
+          }
           if (cart.items[i].qty !== newQty && cart.items[i].id === item.id) {
             cart.totalPrice -= cart.items[i].qty * cart.items[i].price
             cart.items[i].qty = newQty
