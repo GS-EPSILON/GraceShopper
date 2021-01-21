@@ -31,7 +31,8 @@ class Cart {
             name: item.name,
             price: item.price,
             qty: qty || 1,
-            imageURL: item.imageURL
+            imageURL: item.imageURL,
+            inventory: item.quantity
           }
           cart.items.push(cartItem)
           this.calculateOrderTotalPrice(cart, cartItem.qty, cartItem.price)
@@ -101,6 +102,7 @@ class Cart {
           await this.calculateOrderTotalPrice(orderToUpdate, quantity, subPrice)
 
           deleted = true
+          return deleted
         }
         for (let i = 0; i < cart.items.length; i++) {
           if (cart.items[i].id === item.id) {
@@ -130,14 +132,24 @@ class Cart {
           const orderProductToUpdate = await OrderProduct.findOne({
             where: {orderId: cart.id, productId: item.id}
           })
+          orderToUpdate.totalPrice -=
+            orderProductToUpdate.quantity * orderProductToUpdate.priceAtPurchase
+
           const qtyDifference = newQty - orderProductToUpdate.quantity
           await this.calculateCartItemQtyAndPrice(
             orderProductToUpdate,
             qtyDifference,
             item.price
           )
-          orderToUpdate.totalPrice =
-            orderProductToUpdate.priceAtPurchase * orderProductToUpdate.quantity
+          await orderProductToUpdate.save()
+          this.calculateOrderTotalPrice(
+            orderToUpdate,
+            orderProductToUpdate.quantity,
+            orderProductToUpdate.priceAtPurchase
+          )
+          // orderToUpdate.totalPrice +=
+          //   orderProductToUpdate.priceAtPurchase *
+          //   orderProductToUpdate.quantity;
           await orderToUpdate.save()
           edited = true
         }
@@ -157,7 +169,7 @@ class Cart {
     }
   }
 
-  static async checkoutOrder(cart) {
+  static async checkoutOrder(cart, sessId) {
     if (cart.id) {
       try {
         const order = await Order.findByPk(cart.id)
@@ -167,7 +179,7 @@ class Cart {
         return error
       }
     } else {
-      const guestUser = await User.create({email: 'guest'})
+      const guestUser = await User.create({email: sessId})
       const guestOrder = await Order.create({
         userId: guestUser.id,
         status: 'complete',

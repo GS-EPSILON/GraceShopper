@@ -20,6 +20,8 @@ const SingleCartItem = props => {
                   ? `${item.orders_products.quantity}`
                   : item.qty
               }
+              min={0}
+              max={item.quantity || item.inventory}
               onChange={event => handleQtyChange(event, item)}
             />
           </label>

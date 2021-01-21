@@ -16,7 +16,6 @@ export class UserTable extends React.Component {
 
   render() {
     const {users} = this.props
-    console.log('Props: ==> ', this.props)
     return (
       <div id="userTable">
         <table>

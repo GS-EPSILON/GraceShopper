@@ -13,8 +13,11 @@ const Navbar = props => {
     totalQty = props.cart.items.reduce((acc, elem) => {
       if (elem.qty) {
         return acc + elem.qty
+      } else if (elem.orders_products)
+        return acc + elem.orders_products.quantity
+      else {
+        return 0
       }
-      return acc + elem.orders_products.quantity
     }, 0)
   }
 
