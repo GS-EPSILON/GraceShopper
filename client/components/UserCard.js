@@ -86,11 +86,6 @@ const UserCard = props => {
                               {product.description}
                             </div>
                           </div>
-                          <div id="cost">
-                            <div>Qty</div>
-                            <div>Price</div>
-                            <div>Total Price</div>
-                          </div>
                         </div>
                       )
                     })}
