@@ -29,7 +29,7 @@ class SingleProduct extends Component {
             <div id="product-p">{product.description}</div>
             <div id="purchase">
               <div id="price">
-                <div>BTC: {product.price}</div>
+                <div>${product.price}</div>
                 {product.quantity ? (
                   <div>
                     <div>Available: {product.quantity}</div>
