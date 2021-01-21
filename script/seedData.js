@@ -73,12 +73,12 @@ const vehicles = [
     price: 50000
   },
   {
-    name: 'USS Enterprise',
+    name: 'Starship Enterprise',
     quantity: 100,
     category: 'vehicle',
     description: `The USS Enterprise (NCC-1701) was a 23rd century Federation Constitution-class starship operated by Starfleet. It was also the first ship to bear the name Enterprise with this registry. Launched in 2245, the ship was commanded by Captain Robert April until 2250, when command of the ship was turned over to April's First Officer Christopher Pike. (TAS: "The Counter-Clock Incident"; DIS: "Brother")`,
     imageURL:
-      'https://static.wikia.nocookie.net/memoryalpha/images/d/df/USS_Enterprise-A_quarter.jpg/revision/latest?cb=20100518022537&path-prefix=en',
+      'https://airandspace.si.edu/sites/default/files/styles/body_large/public/images/image-albums/A19740668000-NASM2016-02325.jpg?itok=i3lwweIk',
     price: 10000
   }
 ]
@@ -156,6 +156,24 @@ const services = [
     description: `The perfect holiday getaway!`,
     imageURL: 'https://ychef.files.bbci.co.uk/976x549/p00vynyx.jpg',
     price: 200
+  },
+  {
+    name: 'Explore a Black Hole',
+    quantity: 100,
+    category: 'service',
+    description: `Like a weighted blanket, but heavier!`,
+    imageURL:
+      'https://www.sciencemag.org/sites/default/files/styles/article_main_large/public/Supermassive_blackhole_planet.jpg?itok=mrUROD80',
+    price: 1000
+  },
+  {
+    name: 'Stargazing',
+    quantity: 100,
+    category: 'service',
+    description: `Check out the stars, man!`,
+    imageURL:
+      'https://www.universetoday.com/wp-content/uploads/2019/06/eso1911a.jpg',
+    price: 500
   }
 ]
 
@@ -193,6 +211,15 @@ const misc = [
     description: `Don't forget to say hi to mom and dad, from space!`,
     imageURL:
       'https://static.vecteezy.com/system/resources/previews/000/190/735/non_2x/outer-space-postcard-vector.jpg',
+    price: 200
+  },
+  {
+    name: 'Space Fidge Spinner',
+    quantity: 100,
+    category: 'misc',
+    description: `Fidget spinners are toys not unlike yo-yo or other skill toys, designed to spin with little effort. A basic fidget spinner usually consists of a two- or three-pronged design with a bearing in its center circular pad. However, the number of prongs may vary - some may have six or more. A person holds the center pad while the toy spins. They are made from various materials including brass, stainless steel, titanium, copper, aluminium, and plastic.[5][6] The bearings are generally ceramic, metal (stainless steel or chrome), and some are hybrids—such as ceramic balls with stainless races and cages. Each fidget spinner also has two or more weights on the outside that make it spin faster and stay balanced. Bearings can vary to adjust for the design's spin time, vibration, and noise, causing unique sensory feedback.`,
+    imageURL:
+      'https://i.pinimg.com/originals/11/8f/6a/118f6acdb2da95d643032b65291a0b33.jpg',
     price: 200
   }
 ]
