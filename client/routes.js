@@ -37,7 +37,6 @@ class Routes extends Component {
           path="/products"
           render={() => <Home {...this.props} startingHeight={1150} />}
         />
-        {/* <Route exact path="/" render={() => <Redirect to="/products" />} /> */}
         <Route path="/products/:productId" component={SingleProduct} />
         <Route path="/checkout" component={Checkout} />
         <Route

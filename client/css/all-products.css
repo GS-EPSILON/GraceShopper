@@ -3,6 +3,7 @@ img {
   height: 275px;
   object-fit: cover;
   border-radius: 2px;
+  opacity: 1;
 }
 
 .product {
@@ -45,4 +46,8 @@ img {
   text-align: center;
   font-size: 0.875rem;
   margin-right: 2rem;
+}
+
+.products img:hover {
+  opacity: 0.7;
 }
