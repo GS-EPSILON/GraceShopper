@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react'
+import {Link} from 'react-router-dom'
 import Parallax from 'react-rellax'
 import {StarsDimTall, StarsTall, Orbit, Moon, Planet} from './SVG'
 import AllProducts from './all-products'
@@ -55,22 +56,26 @@ const Home = props => {
       {scroll ? (
         <></>
       ) : (
-        <Parallax speed={-6} zIndex={0}>
-          <div id="welcome-container-container">
-            <div id="welcome-container">
-              <div id="welcome">
-                <h1>SPACE PLACE</h1>
-                <p>Get you some stuff for your place, from space!</p>
-                <div id="welcome-buttons">
-                  <button className="button-negative" type="button">
-                    Log In
-                  </button>
-                  <button type="button">Sign Up</button>
+        <>
+          <Parallax speed={-6} zIndex={0}>
+            <div id="welcome-container-container">
+              <div id="welcome-container">
+                <div id="welcome">
+                  <h1>SPACE PLACE</h1>
+                  <p>Get you some stuff for your place, from space!</p>
+                  <div id="welcome-buttons">
+                    {/* <button
+                      className="button-negative"
+                      type="button"
+                      onClick={console.log('click')}
+                    ></button> */}
+                    {/* <button type="button">Sign Up</button> */}
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        </Parallax>
+          </Parallax>
+        </>
       )}
 
       {width < 1200 ? (

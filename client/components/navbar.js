@@ -53,7 +53,7 @@ const Navbar = props => {
             <h2>USER</h2>
           </Link>
           <Link className="nav-link" to="/cart">
-            <h2>CART {!props.cart.items ? <></> : `(${totalQty})`}</h2>
+            <h2>CART{!props.cart.items ? <></> : `(${totalQty})`}</h2>
           </Link>
         </span>
       </div>
