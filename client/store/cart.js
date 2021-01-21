@@ -51,6 +51,7 @@ export const pushToCart = (itemId, qty) => {
 export const editCartQty = (item, qty) => {
   return async dispatch => {
     try {
+      console.log(qty)
       await axios.put('/api/cart', {item, qty})
       dispatch(fetchCart())
     } catch (error) {

@@ -5,6 +5,7 @@ import '../css/Cart.css'
 
 const SingleCartItem = props => {
   const {item, handleDelete, handleQtyChange} = props
+  console.log('---->', item)
   return (
     <div key={item.id} id="cart-product">
       <img src={item.imageURL} />
@@ -20,6 +21,8 @@ const SingleCartItem = props => {
                   ? `${item.orders_products.quantity}`
                   : item.qty
               }
+              min={0}
+              max={item.quantity || item.inventory}
               onChange={event => handleQtyChange(event, item)}
             />
           </label>

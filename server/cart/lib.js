@@ -31,7 +31,8 @@ class Cart {
             name: item.name,
             price: item.price,
             qty: qty || 1,
-            imageURL: item.imageURL
+            imageURL: item.imageURL,
+            inventory: item.quantity
           }
           cart.items.push(cartItem)
           this.calculateOrderTotalPrice(cart, cartItem.qty, cartItem.price)
@@ -157,7 +158,7 @@ class Cart {
     }
   }
 
-  static async checkoutOrder(cart) {
+  static async checkoutOrder(cart, sessId) {
     if (cart.id) {
       try {
         const order = await Order.findByPk(cart.id)
@@ -167,7 +168,7 @@ class Cart {
         return error
       }
     } else {
-      const guestUser = await User.create({email: 'guest'})
+      const guestUser = await User.create({email: sessId})
       const guestOrder = await Order.create({
         userId: guestUser.id,
         status: 'complete',

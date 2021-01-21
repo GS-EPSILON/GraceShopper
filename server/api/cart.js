@@ -40,7 +40,7 @@ router.put('/checkout', async (req, res, next) => {
   try {
     const cart = req.body.cart
     if (cart.items.length > 0) {
-      await Cart.checkoutOrder(cart)
+      await Cart.checkoutOrder(cart, req.session.id)
       req.session.cart = cart
       res.status(200).redirect('/')
     } else {
@@ -56,7 +56,7 @@ router.delete('/:itemId', async (req, res, next) => {
     const cart = req.session.cart
     const item = await Product.findByPk(req.params.itemId)
 
-    if (await Cart.removeCartItem(item, cart)) {
+    if (Cart.removeCartItem(item, cart)) {
       res.status(204).redirect('/')
     } else {
       res.status(404).send('No item found')
