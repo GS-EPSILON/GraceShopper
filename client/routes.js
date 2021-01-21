@@ -7,7 +7,6 @@ import {
   Signup,
   UserHome,
   Cart,
-  AllProducts,
   SingleProduct,
   Checkout,
   Home,
@@ -32,8 +31,12 @@ class Routes extends Component {
         <Route path="/login" component={Login} />
         <Route path="/signup" component={Signup} />
         <Route path="/cart" component={Cart} />
-        <Route exact path="/products" component={Home} />
-        <Route exact path="/" render={() => <Redirect to="/products" />} />
+        <Route exact path="/" component={Home} />
+        <Route
+          exact
+          path="/products"
+          render={() => <Home {...this.props} startingHeight={1150} />}
+        />
         <Route path="/products/:productId" component={SingleProduct} />
         <Route path="/checkout" component={Checkout} />
         <Route

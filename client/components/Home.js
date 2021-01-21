@@ -1,27 +1,33 @@
 import React, {useEffect, useState} from 'react'
+import {Link} from 'react-router-dom'
 import Parallax from 'react-rellax'
 import {StarsDimTall, StarsTall, Orbit, Moon, Planet} from './SVG'
 import AllProducts from './all-products'
 import '../css/Home.css'
 
-const Home = () => {
+const Home = props => {
   const [scroll, setScroll] = useState(false)
+  const {startingHeight} = props
 
-  useEffect(() => {
-    // Sets the scroll position to top when user reloads
-    window.onbeforeunload = function() {
-      window.scrollTo(0, 0)
-    }
+  useEffect(
+    () => {
+      // Set scroll to position in props
+      window.scrollTo({
+        top: startingHeight || 0,
+        behavior: 'smooth'
+      })
 
-    // Sets scroll state to true when user has scroll more than 300px. Used to hide the orbit+planet
-    const handleScroll = () => {
-      setScroll(window.scrollY > 300)
-    }
-    // Add event listener when component mounts.
-    // Remove event listener when component unmounts
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+      // Sets scroll state to true when user has scroll more than 300px. Used to hide the orbit+planet
+      const handleScroll = () => {
+        setScroll(window.scrollY > 1000)
+      }
+      // Add event listener when component mounts.
+      // Remove event listener when component unmounts
+      window.addEventListener('scroll', handleScroll)
+      return () => window.removeEventListener('scroll', handleScroll)
+    },
+    [startingHeight]
+  )
 
   const useViewport = () => {
     const [width, setWidth] = React.useState(window.innerWidth)
@@ -47,22 +53,30 @@ const Home = () => {
 
   return (
     <>
-      <Parallax speed={-6} zIndex={0}>
-        <div id="welcome-container-container">
-          <div id="welcome-container">
-            <div id="welcome">
-              <h1>SPACE PLACE</h1>
-              <p>Get you some stuff for your place, from space!</p>
-              <div id="welcome-buttons">
-                <button className="button-negative" type="button">
-                  Log In
-                </button>
-                <button type="button">Sign Up</button>
+      {scroll ? (
+        <></>
+      ) : (
+        <>
+          <Parallax speed={-6} zIndex={0}>
+            <div id="welcome-container-container">
+              <div id="welcome-container">
+                <div id="welcome">
+                  <h1>SPACE PLACE</h1>
+                  <p>Get you some stuff for your place, from space!</p>
+                  <div id="welcome-buttons">
+                    {/* <button
+                      className="button-negative"
+                      type="button"
+                      onClick={console.log('click')}
+                    ></button> */}
+                    {/* <button type="button">Sign Up</button> */}
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-        </div>
-      </Parallax>
+          </Parallax>
+        </>
+      )}
 
       {width < 1200 ? (
         <></>

@@ -38,7 +38,7 @@ const Navbar = props => {
   return (
     <nav className={scroll ? 'scroll' : ''}>
       <div onClick={handleClick}>
-        <Link to="/products">
+        <Link to="/">
           <h1>SPACE PLACE</h1>
         </Link>
         <span id="nav-span">
@@ -56,7 +56,7 @@ const Navbar = props => {
             <h2>USER</h2>
           </Link>
           <Link className="nav-link" to="/cart">
-            <h2>CART {!props.cart.items ? <></> : `(${totalQty})`}</h2>
+            <h2>CART{!props.cart.items ? <></> : `(${totalQty})`}</h2>
           </Link>
         </span>
       </div>

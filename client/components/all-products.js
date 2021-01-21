@@ -21,7 +21,7 @@ export class AllProducts extends React.Component {
           <div id="products-container">
             <div className="product-container">
               <h2>Vehicles</h2>
-              <div>
+              <div className="products">
                 {products.map(product => {
                   if (product.category === 'vehicle')
                     return (
@@ -31,9 +31,7 @@ export class AllProducts extends React.Component {
                         className="product"
                       >
                         <img src={product.imageURL} alt={`${product.name}`} />
-                        <div>
-                          {product.name} – ${product.price / 100}
-                        </div>
+                        <div>{product.name}</div>
                       </Link>
                     )
                 })}
@@ -41,7 +39,7 @@ export class AllProducts extends React.Component {
             </div>
             <div className="product-container">
               <h2>Apparel</h2>
-              <div>
+              <div className="products">
                 {products.map(product => {
                   if (product.category === 'apparel')
                     return (
@@ -51,9 +49,7 @@ export class AllProducts extends React.Component {
                         className="product"
                       >
                         <img src={product.imageURL} alt={`${product.name}`} />
-                        <div>
-                          {product.name} – ${product.price / 100}
-                        </div>
+                        <div>{product.name}</div>
                       </Link>
                     )
                 })}
@@ -62,7 +58,7 @@ export class AllProducts extends React.Component {
 
             <div className="product-container">
               <h2>Services</h2>
-              <div>
+              <div className="products">
                 {products.map(product => {
                   if (product.category === 'service')
                     return (
@@ -72,9 +68,7 @@ export class AllProducts extends React.Component {
                         className="product"
                       >
                         <img src={product.imageURL} alt={`${product.name}`} />
-                        <div>
-                          {product.name} – ${product.price / 100}
-                        </div>
+                        <div>{product.name}</div>
                       </Link>
                     )
                 })}
@@ -83,7 +77,7 @@ export class AllProducts extends React.Component {
 
             <div className="product-container">
               <h2>Swag</h2>
-              <div>
+              <div className="products">
                 {products.map(product => {
                   if (product.category === 'misc')
                     return (
@@ -93,9 +87,7 @@ export class AllProducts extends React.Component {
                         className="product"
                       >
                         <img src={product.imageURL} alt={`${product.name}`} />
-                        <div>
-                          {product.name} – ${product.price / 100}
-                        </div>
+                        <div>{product.name}</div>
                       </Link>
                     )
                 })}
