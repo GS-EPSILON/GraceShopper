@@ -35,7 +35,7 @@ const Navbar = props => {
   return (
     <nav className={scroll ? 'scroll' : ''}>
       <div onClick={handleClick}>
-        <Link to="/products">
+        <Link to="/">
           <h1>SPACE PLACE</h1>
         </Link>
         <span id="nav-span">
