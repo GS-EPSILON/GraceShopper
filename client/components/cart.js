@@ -37,11 +37,19 @@ class Cart extends React.Component {
             )}
             <div id="total">TOTAL ${cart.totalPrice}</div>
             <div id="button-container">
-              <Link to="/checkout">
-                <button type="button" className="green">
-                  <div>Checkout</div>
-                </button>
-              </Link>
+              {cart.totalPrice === 0 ? (
+                <Link to="/">
+                  <button type="button" disabled className="green">
+                    <div>Checkout</div>
+                  </button>
+                </Link>
+              ) : (
+                <Link to="/checkout">
+                  <button type="button" className="green">
+                    <div>Checkout</div>
+                  </button>
+                </Link>
+              )}
             </div>
           </div>
         </div>
