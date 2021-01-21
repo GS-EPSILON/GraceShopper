@@ -47,7 +47,6 @@ class AddProduct extends Component {
   render() {
     const {name, category, price, description, imageURL, quantity} = this.state
     const {handleSubmit, handleChange} = this
-    console.log('State ==> ', this.state)
     return (
       <>
         <div className="product-header">

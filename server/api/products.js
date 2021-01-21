@@ -10,7 +10,6 @@ const checkIfUserIsAdmin = (req, res, next) => {
     err.status = 401
     next(err)
   }
-  // console.log('REQ.USER.ADMIN > ', req.user.isAdmin)
 }
 
 router.get('/', async (req, res, next) => {
@@ -43,8 +42,6 @@ router.post('/', adminsOnly, async (req, res, next) => {
 
 // UPDATE PRODUCT
 router.put('/:productId', adminsOnly, async (req, res, next) => {
-  console.log('ProductID: => ', req.params.productId)
-  console.log('NewProduct: => ', req.body)
   try {
     const product = await Product.findByPk(req.params.productId)
     await product.update(req.body)

@@ -11,7 +11,6 @@ const Navbar = props => {
   let totalQty = 0
   if (props.cart.items) {
     totalQty = props.cart.items.reduce((acc, elem) => {
-      console.log(elem)
       if (elem.qty) {
         return acc + elem.qty
       } else if (elem.orders_products)

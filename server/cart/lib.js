@@ -201,7 +201,6 @@ class Cart {
   static async calculateOrderTotalPrice(order, qty, itemPrice) {
     order.totalPrice += itemPrice * qty
     if (order.id) {
-      console.log(order)
       await order.save()
     }
   }

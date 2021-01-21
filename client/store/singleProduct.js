@@ -28,8 +28,6 @@ export const fetchSingleProduct = id => {
 }
 
 export const updateProduct = (id, newProduct) => {
-  console.log('ID: => ', id)
-  console.log('NewProduct: => ', newProduct)
   return async dispatch => {
     try {
       const {data} = await axios.put(`/api/products/${id}`, newProduct)

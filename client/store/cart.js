@@ -25,7 +25,6 @@ export const fetchCart = () => {
 export const updateStatus = cart => {
   return async dispatch => {
     try {
-      console.log('CART INSIDE THUNK!!!', cart)
       await axios.put('/api/cart/checkout', {cart})
       dispatch(fetchCart())
     } catch (error) {
@@ -51,7 +50,6 @@ export const pushToCart = (itemId, qty) => {
 export const editCartQty = (item, qty) => {
   return async dispatch => {
     try {
-      console.log(qty)
       await axios.put('/api/cart', {item, qty})
       dispatch(fetchCart())
     } catch (error) {
